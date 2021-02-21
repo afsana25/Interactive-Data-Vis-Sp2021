@@ -4,8 +4,8 @@ d3.csv('../data/squirrelActivities.csv', d3.autoType).then(data =>
 
  // constants
 
-const width = window.innerWidth * 0.5; // 80 percent of width of the window
-const height = window.innerHeight /1.7  ; // 1/3 of the height of the window
+const width = window.innerWidth * 0.50; // 50 percent of width of the window
+const height = window.innerHeight /1.7  ; // 1/1.7 of the height of the window
 
 const margin = {top: 10, right:20, bottom: 20., left: 20 };
 const innerWidth = width-margin.left-margin.right;
