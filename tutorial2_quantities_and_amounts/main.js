@@ -32,7 +32,7 @@ const yScale = d3.scaleBand()
             .range([0, innerHeight])
             .padding(0.3);
 
-const svg = d3.select("#barchart")
+const svg = d3.select("#barchart2")
 .append("svg").
 attr("width", width)
 .attr("height", height)
