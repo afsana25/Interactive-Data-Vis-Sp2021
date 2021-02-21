@@ -8,7 +8,7 @@ d3.csv('../data/squirrelActivities.csv', d3.autoType).then(data =>
  // constants
 
 const width = window.innerWidth * .7; // 70 percent of width of the window
-const height = window.innerHeight/2.5; // 1/2.5 of the height of the window
+const height = window.innerHeight/2; // 1/2 of the height of the window
 
 const xValue = d=>d.count;
 const yValue = d=>d.activity;
