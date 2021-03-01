@@ -1,14 +1,34 @@
 <!DOCTYPE html>
-  <head>
-    <meta charset="utf-8">
-    <title>Interactive Data Visualization Tutorial</title>
-    <link rel="stylesheet" href="./style.css">
-  </head>
-  <body>
-    <label for="dropdown">Filter Selection</label>
-    <select id="dropdown" name="dropdown"></select>
-    <div id="d3-container"> </div>
-    <script src="../lib/d3.js"></script>
-    <script src="main.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Interactive Data Visualization Tutorial</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <h1>Tutorial 3</h1>
+  <h2>Afsana Mimi</h2>
+  <h3> Dot Chart </h3>
+
+  <p> <label for="dropdown1">Filter Selection for party
+      <select id="dropdown1" name="dropdown1"></select>
+      <p>Environmental Score 2020 vs Ideology Score 2020 </p>
+    </label>
+  <div id="d3-container"> </div>
+  </p>
+
+  <p><a href="../data/BusinessFinance.csv"> Business Finance Data </a></p>
+  <p><label for="dropdown2">Filter Selection for paid customer
+      <select id="dropdown2" name="dropdown2"></select>
+      <p>The number of Reviewers vs the number of subscibers</p>
+    </label>
+
+  <div id="d3-dot"></div>
+  </p>
+  <script src="../lib/d3.js"></script>
+  <script src="main.js"></script>
+  <script src="DOT.js"></script>
+</body>
+
 </html>
