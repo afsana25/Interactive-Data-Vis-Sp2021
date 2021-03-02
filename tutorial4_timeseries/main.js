@@ -13,47 +13,87 @@ let yScale;
 /* APPLICATION STATE */
 let state = {
   data: [],
-  selection: "All", // + YOUR FILTER SELECTION
+  selection: "Afganistan", // + YOUR FILTER SELECTION
 };
 
 /* LOAD DATA */
 // + SET YOUR DATA PATH
-d3.json(YOUR_DATA_PATH, d3.autoType).then(raw_data => {
-  console.log("raw_data", raw_data);
-  state.data = raw_data;
-  init();
+d3.csv('../data/populationOverTime.csv', (d)=>{
+  const formattedObj= {
+country: d.Entity,
+population: +d.Population,
+year: new Date(+d.Year, 01, 01) //(year, month, day)
+  }
+  //console.log(d, formattedObj)
+  return formattedObj
+})
+.then(data => {
+  console.log("loaded data:", data);
+  state.data = data;
+init()
 });
 
 /* INITIALIZING FUNCTION */
 // this will be run *one time* when the data finishes loading in
 function init() {
+console.log('state', state)
+
   // + SCALES
+ xScale = d3.scaleTime()
+  .domain(d3.extent(state.data, d=>d.year)) //state.data= holding our data
+  //
+.range([margin.left, width - margin.right])
 
+yScale = d3.scaleLinear()
+ .domain(d3.extent(state.data, d=>d.population) )// [min, max]
+  .range([height-margin.bottom, margin.top]);
+  
   // + AXES
+const xAxis  = d3.axisBottom(xScale)
+const yAxis  = d3.axisLeft(yScale)
 
-  // + UI ELEMENT SETUP
+//Create svg
+svg = d3.selectAll('#d3-container')
+.append("svg")
+.attr('width', width)
+.attr('height', height)
 
-  const selectElement = d3.select("#dropdown").on("change", function() {
-    // `this` === the selectElement
-    // 'this.value' holds the dropdown value a user just selected
-    state.selection = this.value; // + UPDATE STATE WITH YOUR SELECTED VALUE
-    console.log("new value is", this.value);
-    draw(); // re-draw the graph based on this new selection
-  });
+// already set transform to (x,y)=(0, 240px)
+svg.append("g")
+.attr("class", "xAxis")
+.attr("transform", `translate(${0}, ${height-margin.bottom})`) //translate(x,y)
+.call(xAxis)
+.append("text")
+.text("Year")
+.attr("transform", `translate(${width/2}, ${40})`)
 
-  // add in dropdown options from the unique values in the data
-  selectElement
-    .selectAll("option")
-    .data(["All", "1", "2", "3"]) // + ADD DATA VALUES FOR DROPDOWN
-    .join("option")
-    .attr("value", d => d)
-    .text(d => d);
+svg.append("g")
+.attr("class", "yAxis") 
+.attr("transform", `translate(${margin.left},${0})`)//translate(x,y)
+.call(yAxis)
+.append("text")
+.text("Population")
+//.attr("transform", "rotate(-90)")
+.attr("transform", `translate(${0}, ${height/2})`)
 
-  // + SET SELECT ELEMENT'S DEFAULT VALUE (optional)
+//SETUP UI ELEMENTS
 
-  // + CREATE SVG ELEMENT
+const dropdown = d3.select("#dropdown")
+dropdown.selectAll("options")
+.data(Array.from(new Set(state.data.map(d=>d.country))))
+.join("option")
+.attr("value", d=>d)
+.text(d=>d)
 
-  // + CALL AXES
+
+dropdown.on("change", event => {
+console.log("dropdown changed!", event.target.value) 
+state.selection = event.target.value
+console.log("new state:", state)
+draw(); //Recall draw
+
+  })
+
 
   draw(); // calls the draw function
 }
@@ -61,21 +101,36 @@ function init() {
 /* DRAW FUNCTION */
 // we call this everytime there is an update to the data/state
 function draw() {
-  // + FILTER DATA BASED ON STATE
-  //
-  // + UPDATE SCALE(S), if needed
-  //
-  // + UPDATE AXIS/AXES, if needed
-  //
-  // + DRAW CIRCLES, if you decide to
-  // const dot = svg
-  //   .selectAll("circle")
-  //   .data(filteredData, d => d.name)
-  //   .join(
-  //     enter => enter, // + HANDLE ENTER SELECTION
-  //     update => update, // + HANDLE UPDATE SELECTION
-  //     exit => exit // + HANDLE EXIT SELECTION
-  //   );
-  //
-  // + DRAW LINE AND AREA
+
+  console.log("state.selected", state.selection)
+ // + FILTER DATA BASED ON STATE
+
+ const filteredData = state.data.filter(d=> state.selection === d.country )
+
+ yScale
+ .domain(d3.extent(filteredData, d=> d.population)) //update the scale
+
+ console.log(filteredData)
+
+ // +DRAW LINE AND/OR AREA
+
+
+const lineFunction = d3.line()
+.x(d => xScale(d.year))
+.y(d=> yScale(d.population))
+
+
+svg.selectAll("path.line")
+.data([filteredData])
+.join("path")
+.attr("class", "line")
+.attr("fill", "none")
+.attr("stroke", "black")
+.attr("d", lineFunction)
+
+//SELECT_ALL()
+// JOIN DATA
+// RENDER ELEMENTS
+
+
 }
