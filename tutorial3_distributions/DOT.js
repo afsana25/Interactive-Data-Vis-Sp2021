@@ -57,7 +57,9 @@ svg.append("g")
 .attr("class", "yAxis1")
 .attr("transform", `translate(${margin.left},${0})`) //translate(x,y)
 .call(yAxis1)
-//.text("The number of Reviews")
+.append("text")
+.text("numOfReviews")
+.attr("transform", `translate(${0}, ${height/2})`)
 
 
 

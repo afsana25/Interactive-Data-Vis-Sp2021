@@ -1,7 +1,7 @@
 /* CONSTANTS AND GLOBALS */
 const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7,
-  margin = { top: 20, bottom: 50, left: 60, right: 40 },
+  margin = { top: 20, bottom: 50, left: 70, right: 40 },
   radius = 5;
 
 // these variables allow us to access anything we manipulate in init() but need access to in draw().
@@ -67,6 +67,10 @@ svg1.append("g")
 .attr("class", "yAxis") 
 .attr("transform", `translate(${margin.left},${0})`)//translate(x,y)
 .call(yAxis)
+.append("text")
+.text("envScore2020")
+//.attr("transform", "rotate(-90)")
+.attr("transform", `translate(${0}, ${height/2})`)
 
 //SETUP UI ELEMENTS
 
