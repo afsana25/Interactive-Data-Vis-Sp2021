@@ -7,7 +7,7 @@ const width = window.innerWidth * 0.7,
 // these variables allow us to access anything we manipulate in init() but need access to in draw().
 // All these variables are empty before we assign something to them.
 let svg;
-let xScale;
+let xScale1;
 let yScale;
 
 /* APPLICATION STATE */
@@ -18,10 +18,12 @@ let state = {
 
 /* LOAD DATA */
 // + SET YOUR DATA PATH
-d3.csv('../data/populationOverTime.csv', (d)=>{
+d3.csv('../data/refugees_per_capita.csv', (d)=>{
   const formattedObj= {
-country: d.Entity,
+country: d.Country,
 population: +d.Population,
+Refugees: +d.Refugees,
+RefPerCap: +d.RefPerCap,
 year: new Date(+d.Year, 01, 01) //(year, month, day)
   }
   //console.log(d, formattedObj)
@@ -45,7 +47,7 @@ console.log('state', state)
 .range([margin.left, width - margin.right])
 
 yScale = d3.scaleLinear()
- .domain(d3.extent(state.data, d=>d.population) )// [min, max]
+ .domain(d3.extent(state.data, d=>d.RefPerCap) )// [min, max]
   .range([height-margin.bottom, margin.top]);
   
   // + AXES
@@ -108,7 +110,7 @@ function draw() {
  const filteredData = state.data.filter(d=> state.selection === d.country )
 
  yScale
- .domain(d3.extent(filteredData, d=> d.population)) //update the scale
+ .domain(d3.extent(filteredData, d=> d.RefPerCap)) //update the scale
 
  console.log(filteredData)
 
@@ -117,7 +119,7 @@ function draw() {
 
 const lineFunction = d3.line()
 .x(d => xScale(d.year))
-.y(d=> yScale(d.population))
+.y(d=> yScale(d.RefPerCap))
 
 
 svg.selectAll("path.line")

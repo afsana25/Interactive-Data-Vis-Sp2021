@@ -1,12 +1,12 @@
 /* CONSTANTS AND GLOBALS */
 const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7,
-  margin = { top: 20, bottom: 50, left: 60, right: 40 },
+  margin = { top: 20, bottom: 50, left: 100, right: 40 },
   radius = 5;
 
 // these variables allow us to access anything we manipulate in init() but need access to in draw().
 // All these variables are empty before we assign something to them.
-let svg;
+let svg1;
 let xScale;
 let yScale;
 
@@ -53,13 +53,13 @@ const xAxis  = d3.axisBottom(xScale)
 const yAxis  = d3.axisLeft(yScale)
 
 //Create svg
-svg = d3.selectAll('#d3-container')
+svg1 = d3.selectAll('#d3-container')
 .append("svg")
 .attr('width', width)
 .attr('height', height)
 
 // already set transform to (x,y)=(0, 240px)
-svg.append("g")
+svg1.append("g")
 .attr("class", "xAxis")
 .attr("transform", `translate(${0}, ${height-margin.bottom})`) //translate(x,y)
 .call(xAxis)
@@ -67,13 +67,13 @@ svg.append("g")
 .text("Year")
 .attr("transform", `translate(${width/2}, ${40})`)
 
-svg.append("g")
+svg1.append("g")
 .attr("class", "yAxis") 
 .attr("transform", `translate(${margin.left},${0})`)//translate(x,y)
 .call(yAxis)
 .append("text")
+.attr("transform", "rotate(-90)")
 .text("Population")
-//.attr("transform", "rotate(-90)")
 .attr("transform", `translate(${0}, ${height/2})`)
 
 //SETUP UI ELEMENTS
@@ -120,7 +120,7 @@ const lineFunction = d3.line()
 .y(d=> yScale(d.population))
 
 
-svg.selectAll("path.line")
+svg1.selectAll("path.line")
 .data([filteredData])
 .join("path")
 .attr("class", "line")
