@@ -1,5 +1,5 @@
 /* CONSTANTS AND GLOBALS */
-const width = window.innerWidth * 0.7,
+ const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7,
   margin = { top: 20, bottom: 50, left: 100, right: 40 },
   radius = 5;
@@ -11,17 +11,19 @@ let xScale;
 let yScale;
 
 /* APPLICATION STATE */
-let state = {
+let state1 = {
   data: [],
   selection: "Afganistan", // + YOUR FILTER SELECTION
 };
 
 /* LOAD DATA */
 // + SET YOUR DATA PATH
-d3.csv('../data/populationOverTime.csv', (d)=>{
+d3.csv('../data/refugees_per_capita.csv', (d)=>{
   const formattedObj= {
-country: d.Entity,
+country: d.Country,
 population: +d.Population,
+Refugees: +d.Refugees,
+RefPerCap: +d.RefPerCap,
 year: new Date(+d.Year, 01, 01) //(year, month, day)
   }
   //console.log(d, formattedObj)
@@ -29,23 +31,23 @@ year: new Date(+d.Year, 01, 01) //(year, month, day)
 })
 .then(data => {
   console.log("loaded data:", data);
-  state.data = data;
+  state1.data = data;
 init()
 });
 
 /* INITIALIZING FUNCTION */
 // this will be run *one time* when the data finishes loading in
 function init() {
-console.log('state', state)
+console.log('state1', state1)
 
   // + SCALES
  xScale = d3.scaleTime()
-  .domain(d3.extent(state.data, d=>d.year)) //state.data= holding our data
+  .domain(d3.extent(state1.data, d=>d.year)) //state.data= holding our data
   //
 .range([margin.left, width - margin.right])
 
 yScale = d3.scaleLinear()
- .domain(d3.extent(state.data, d=>d.population) )// [min, max]
+ .domain(d3.extent(state1.data, d=>d.RefPerCap) )// [min, max]
   .range([height-margin.bottom, margin.top]);
   
   // + AXES
@@ -69,27 +71,38 @@ svg1.append("g")
 
 svg1.append("g")
 .attr("class", "yAxis") 
+.attr('y', -60)
 .attr("transform", `translate(${margin.left},${0})`)//translate(x,y)
 .call(yAxis)
 .append("text")
-.attr("transform", "rotate(-90)")
-.text("Population")
-.attr("transform", `translate(${0}, ${height/2})`)
+.attr("class", "axis-label")
+.attr('y', -60)
+.attr('x', -height/2)
+.attr('transform', `rotate(-90)`)
+.attr("text-anchor", "middle")
+.text("Refegees per Capita")
+
+svg1.append("g")
+.attr("class", "yAxis") 
+.call(yAxis)
+.append("text")
+.text("Refugees per Capita By Country")
+.attr("transform", `translate(${width/1.8}, ${20})`)
 
 //SETUP UI ELEMENTS
 
-const dropdown = d3.select("#dropdown")
-dropdown.selectAll("options")
-.data(Array.from(new Set(state.data.map(d=>d.country))))
+const dropdown1 = d3.select("#dropdown1")
+dropdown1.selectAll("options")
+.data(Array.from(new Set(state1.data.map(d=>d.country))))
 .join("option")
 .attr("value", d=>d)
 .text(d=>d)
 
 
-dropdown.on("change", event => {
+dropdown1.on("change", event => {
 console.log("dropdown changed!", event.target.value) 
-state.selection = event.target.value
-console.log("new state:", state)
+state1.selection = event.target.value
+console.log("new state:", state1)
 draw(); //Recall draw
 
   })
@@ -102,30 +115,28 @@ draw(); //Recall draw
 // we call this everytime there is an update to the data/state
 function draw() {
 
-  console.log("state.selected", state.selection)
+  console.log("state1.selected", state1.selection)
  // + FILTER DATA BASED ON STATE
 
- const filteredData = state.data.filter(d=> state.selection === d.country )
+ const filteredData1 = state1.data.filter(d=> state1.selection === d.country )
 
- yScale
- .domain(d3.extent(filteredData, d=> d.population)) //update the scale
+ yScale.domain(d3.extent(filteredData1, d=> d.RefPerCap)) //update the scale
 
- console.log(filteredData)
 
  // +DRAW LINE AND/OR AREA
 
 
 const lineFunction = d3.line()
 .x(d => xScale(d.year))
-.y(d=> yScale(d.population))
+.y(d=> yScale(d.RefPerCap))
 
 
 svg1.selectAll("path.line")
-.data([filteredData])
+.data([filteredData1])
 .join("path")
 .attr("class", "line")
 .attr("fill", "none")
-.attr("stroke", "black")
+.attr("stroke", "maroon")
 .attr("d", lineFunction)
 
 //SELECT_ALL()

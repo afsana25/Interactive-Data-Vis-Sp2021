@@ -1,16 +1,36 @@
 <!DOCTYPE html>
-  <head>
-    <meta charset="utf-8">
-    <title>Interactive Data Visualization Tutorial</title>
-    <link rel="stylesheet" href="./style.css">
-  </head>
-  <body>
-    Welcome to Interactive Data Visualization Tutorials
-    <label for="dropdown">Filter Selection</label>
-    <select id="dropdown" name="dropdown"></select>
-    <div id= "d3-container"></div>
-    <script src="../lib/d3.js"></script>
-    <!--<script src="main.js"></script> -->
-    <script src="Time.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Interactive Data Visualization Tutorial</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <h1>Tutorial 4</h1>
+  <h2>Afsana Mimi</h2>
+  <h3> Time Series </h3>
+
+  <p><a href="../data/refugees_per_capita.csv"> Refugees Per Capita </a> </p>
+  <p> This data is different than what we did in class.</p>
+<p> Line Chart </p>
+  <p>  <label for="dropdown1">Filter Selection
+      <select id="dropdown1" name="dropdown1"></select>
+
+    </label>
+  <div id="d3-container"> </div>
+  </p>
+<p> Area Chart</p>
+  <p><label for="dropdown2">Filter Selection
+      <select id="dropdown2" name="dropdown2"></select>
+
+    </label>
+
+  <div id="d3-area"></div>
+  </p>
+  <script src="../lib/d3.js"></script>
+  <script src="main.js"></script>
+  <script src="Time.js"></script> 
+</body>
+
 </html>

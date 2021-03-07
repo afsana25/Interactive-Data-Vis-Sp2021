@@ -1,0 +1,26 @@
+body {
+    background-color: wheat;
+} 
+
+h1, h2, h3 {
+    color: black;
+    text-align: Center
+}
+div {
+
+    padding: 10px;
+    box-sizing: border-box;
+
+    text-align: Center;
+}
+
+text {
+  fill : black;
+}
+
+p{
+    text-align: center;
+}
+svg{
+    border: black 5px solid;
+}
