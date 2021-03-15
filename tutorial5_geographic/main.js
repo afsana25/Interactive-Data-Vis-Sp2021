@@ -20,8 +20,8 @@ let state = {
   hover: {
     screenPosition: null, // will be array of [x,y] once mouse is hovered on something
     mapPosition: null, // will be array of [long, lat] once mouse is hovered on something
-    Name : null,
-    temp: null,
+    SName : null,
+    Stemp: null,
     visible: false,
   }
 };
@@ -99,16 +99,15 @@ svg.selectAll("circle")
 
 states.on("mouseover", function(event, d){
   const {clientX, clientY} = event
-  
+
   const [long, lat] = projection.invert([clientX, clientY])
 
   state.hover= {
-    Name: d.State,
-    temp: d.Change_in_95_percent_Days,
+    SName: [d.properties.NAME],
+    Stemp: [d.Change_in_95_percent_Days],
     screenPosition: [clientX, clientY],
     mapPosition: [long, lat],
     visible: true,
-
   }
 
   draw();
@@ -141,7 +140,7 @@ d3.select("#d3-container") // want to add
     })
     .html(d=> {
       return `<div> Location: ${d.mapPosition}</div>
-      <div> State name: ${d.Name}</div>
-      <div> Temperature: ${d.temp}<div>`}
+      <div> State name: ${d.SName}</div>
+      <div> Temperature: ${d.Stemp}<div>`}
       )
 }
