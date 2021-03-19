@@ -3,10 +3,12 @@
  * */
 const width = window.innerWidth,
   height = window.innerHeight ,
-  margin = { top: 20, bottom: 50, left: 60, right: 40 };
+  margin = { top: 20, bottom: 50, left: 60, right: 40 }
+  ;
 
 let svg;
 let tooltip;
+//let radius;
 
 /**
  * APPLICATION STATE
@@ -29,13 +31,27 @@ d3.json("../../data/flare.json", d3.autotype).then(data => {
  * */
 function init() {
   const colorScale = d3.scaleOrdinal(d3.schemeSet3)
+  //const sizeScale = d3.scaleSqrt()
+  //.range([5, 10])
   console.log(state.data)
   const container = d3.select("#d3-container").style("position", "relative");
 
   svg = container
     .append("svg")
-    .attr("width", width)
-    .attr("height", height);
+    .attr("width", width+30)
+    .attr("height", height+30)
+    //.attr("radius", 500)
+    .attr("viewBox", [0, 0, width, height])
+    .style("font", "6px sans-serif")
+      .attr("text-anchor", "middle");
+    //.attr("radius", radius);
+
+     //svg.append("filter")
+      //.attr("id", shadow.id)
+    //.append("feDropShadow")
+    //  .attr("flood-opacity", 0.3)
+     // .attr("dx", 0)
+    //  .attr("dy", 1);
 
     tooltip = container
     .append("div")
@@ -50,9 +66,10 @@ function init() {
     console.log("state.data", state.data)
     console.log("root", root)
 
-    const treeLayout = d3.treemap()
+    const treeLayout = d3.pack()
+    //.radius(d=>d.value)
     .size([width, height])
-    .padding(2)
+    .padding(1)
     
     treeLayout(root)
     //console.log("root after layout function", root)
@@ -65,28 +82,30 @@ function init() {
 const leafGroup = svg.selectAll("g")
 .data(leaves)
 .join("g")
-.attr("transform", d=>`translate(${d.x0}, ${d.y0})`)
+.attr("transform", d=>`translate(${d.x}, ${d.y})`)
 
 
 //append rect
-leafGroup.append("rect")
+leafGroup.append("circle")
 .attr("fill", d => {
   const level1Ancestor = d.ancestors().find(a=> a.depth===1)
   return colorScale(level1Ancestor.data.name)
 })
 .attr("stroke","red")
-.attr("width", d=> d.x1-d.x0)
-.attr("height", d=>d.y1-d.y0)
+.attr("height", d=> d.x+30)
+.attr("width", d=>d.y+30)
+.attr("r", d=>d.r)
 
 
 leafGroup.append("text")
-.attr("dy", "1em")
+//.attr("dy", "1em")
 .text(d=>d.data.name)
 
 leafGroup.on("mouseenter", (event, d)=>{
   state.hoverLeaf = d.data.name
-  state.hoverPositionX = d.x0
- state.hoverPositionY = d.y0
+  state.hoverPositionX = d.x
+ state.hoverPositionY = d.y
+  //state.hoverPositionR = d.r
 
 draw()
 

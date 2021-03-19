@@ -1,0 +1,13 @@
+
+
+body {
+    background-color: white;
+} 
+
+h1, h2, h3 {
+    color: black;
+    text-align: Center
+}
+svg{
+    border: black 5px solid;
+}
