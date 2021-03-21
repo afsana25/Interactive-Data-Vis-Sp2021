@@ -40,18 +40,14 @@ function init() {
     .append("svg")
     .attr("width", width+30)
     .attr("height", height+30)
-    //.attr("radius", 500)
     .attr("viewBox", [0, 0, width, height])
     .style("font", "6px sans-serif")
       .attr("text-anchor", "middle");
-    //.attr("radius", radius);
 
-     //svg.append("filter")
-      //.attr("id", shadow.id)
-    //.append("feDropShadow")
-    //  .attr("flood-opacity", 0.3)
-     // .attr("dx", 0)
-    //  .attr("dy", 1);
+     svg.append("filter")
+    .attr("flood-opacity", 0.3)
+     .attr("dx", 0)
+    .attr("dy", 1);
 
     tooltip = container
     .append("div")
@@ -83,7 +79,7 @@ function init() {
 const leafGroup = svg.selectAll("g")
 .data(leaves)
 .join("g")
-.attr("transform", d=>`translate(${d.x}, ${d.y})`)
+.attr("transform", d=>`translate(${d.x+1}, ${d.y+1})`)
 
 
 //append rect
