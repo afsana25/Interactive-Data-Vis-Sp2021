@@ -62,14 +62,15 @@ function init() {
 
     const root = d3.hierarchy(state.data)
     .sum(d=>d.value)
+    .sort((a, b)=> b.value- a.value)
 
     console.log("state.data", state.data)
     console.log("root", root)
 
     const treeLayout = d3.pack()
-    //.radius(d=>d.value)
     .size([width, height])
     .padding(1)
+  
     
     treeLayout(root)
     //console.log("root after layout function", root)
