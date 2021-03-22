@@ -44,11 +44,6 @@ function init() {
     .style("font", "6px sans-serif")
       .attr("text-anchor", "middle");
 
-     svg.append("filter")
-    .attr("flood-opacity", 0.3)
-     .attr("dx", 0)
-    .attr("dy", 1);
-
     tooltip = container
     .append("div")
     .style("position", "absolute")
