@@ -4,10 +4,6 @@ The exploratory project’s motivation is to conduct the world’s socio-economi
 
 _Brainstorming_:
 
-*Project*
-Demographics, GDP, income
-Bubble chart(?), with drop down menus
-Unsure of narrative, exploratory analysis
 This data will be shown as time series, bubble charts, or scatter plots.
 There will be dropdowns of countries in the visualizations. 
 The visualization will have a transition, axis name, title, and color to enhance the visualization's beauty. There can be three layouts to visualize the data on one page. The time series should appear in the chart in the first layout since it can show the countries GDP via time. The country's time series will consist of the country's GDP via years. Secondly, The bubble chart will present the country's demographic indicators such as per capita, population, or fertility rate.  Finally, the Scatter will show other relationships with other indicators. The data display in the visuals (Time-series -> Bubble Chart -> Scatter Plot). It will be easy for a user, and it will present how socio-economic indicators are shaping a country's GDP.
