@@ -18,7 +18,7 @@ let state = { //state is just an object keep track of user selection
 };
 
 /* LOAD DATA */
-d3.csv('../data/Data2019.csv', d3.autoType).then(raw_data => {
+d3.csv('./data/Data2019.csv', d3.autoType).then(raw_data => {
   // + SET YOUR DATA PATH
   console.log("raw_data", raw_data);
   state.data = raw_data; //save our data to application state
