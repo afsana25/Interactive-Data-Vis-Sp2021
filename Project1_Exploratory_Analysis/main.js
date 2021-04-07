@@ -1,46 +1,8 @@
-/* CONSTANTS AND GLOBALS */
-const width = window.innerWidth * 0.7,
-  height = window.innerHeight * 0.7,
-  margin = { top: 20, bottom: 50, left: 70, right: 40 },
-  radius = 5;
-
-// these variables allow us to access anything we manipulate in init() but need access to in draw().
-// All these variables are empty before we assign something to them.
-let xScale;
-let yScale;
-let z;
-
-//let svg1;
-
-/* APPLICATION STATE */
-let state = { //state is just an object keep track of user selection
- data: [], // one of the property data, it will keep track of whole data sets
- // selectedParty: "All" // + YOUR FILTER SELECTION
-};
-
-/* LOAD DATA */
-d3.csv('./data/Data2019.csv', d3.autoType).then(raw_data => {
-  // + SET YOUR DATA PATH
-  console.log("raw_data", raw_data);
-  state.data = raw_data; //save our data to application state
-//init(); //initializing function
-});
-
-/* INITIALIZING FUNCTION */
-// this will be run *one time* when the data finishes loading in 
-//function init() {
-
-  //console.log('state', state)
-
-  // + SCALES
- xScale = d3.scaleLinear()
-  .domain(d3.extent(state.data, d=>d.fertility2019)) //state.data= holding our data
-  //
-.range([margin.left, width - margin.right])
-
-  console.log("xScale", xScale)
-//}
-
+// set the dimensions and margins of the graph
+const width = window.innerWidth*0.5,
+  height = window.innerHeight*0.5,
+  margin = { top: 20, bottom: 50, left: 70, right: 40 };
+// append the svg object to the body of the page
 const svg = d3.select("#d3-container")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -49,22 +11,45 @@ const svg = d3.select("#d3-container")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
- yScale = d3.scaleLinear()
- .domain(d3.extent(state.data, d=>d.population) )// [min, max]
-  .range([height-margin.bottom, margin.top]);
+//Read the data
+d3.csv("./Data/DataN.csv", d3.autoType).then(data => 
+    {
+   console.log("data", data)
 
+  // Add X axis
+  const x = d3.scaleLinear()
+    .domain(d3.extent(data, d=>d.Per_cap17))
+    .range([0, width]);
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x));
 
-    z = d3.scaleLinear()
-    .domain([200000, 1310000000])
-    .range([ 1, 40]);
- svg.append('g')
-    .selectAll("dot")
-    .data(state.data)
+  // Add Y axis
+  const y = d3.scaleLinear()
+    .domain(d3.extent(data, d=>d.Fertility_rate19))
+    .range([ height, 0]);
+  svg.append("g")
+    .call(d3.axisLeft(y));
+
+  // Add a scale for bubble size
+ const z = d3.scaleLinear()
+    .domain(d3.extent(data, d=>d.Population19))
+  //.range([margin.left, margin.right]);
+  .range([3, 100])
+
+    
+  // Add circle
+  svg.append('g')
+    .selectAll("circle")
+    .data(data)
     .enter()
     .append("circle")
-      .attr("cx", function (d) { return xScale(d.fertility2019); } )
-      .attr("cy", function (d) { return yScale(d.population); } )
-      .attr("r", 1.5)
+      .attr("cx", d=> x(d.Per_cap17))
+      .attr("cy", d=> y(d.Fertility_rate19))
+      //.attr("r", 2)
+      .attr("r", d=> z(d.Population19) *0.5)
       .style("fill", "#69b3a2")
       .style("opacity", "0.7")
       .attr("stroke", "black")
+      
+})
