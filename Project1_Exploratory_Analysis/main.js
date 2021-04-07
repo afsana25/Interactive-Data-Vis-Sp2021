@@ -48,7 +48,7 @@ d3.csv("./Data/DataN.csv", d3.autoType).then(data =>
       .attr("cy", d=> y(d.Fertility_rate19))
       //.attr("r", 2)
       .attr("r", d=> z(d.Population19) *0.5)
-      .style("fill", "#69b3a2")
+      .style("fill", "#d1848e")
       .style("opacity", "0.7")
       .attr("stroke", "black")
       
