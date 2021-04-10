@@ -1,9 +1,28 @@
+.hover-content{
+  top: 0;
+  left: 0;
+  max-width: 300px;
+  background-color: white;
+  padding: .5em;
+  opacity: 0;
+  /* need to remove pointer events so that
+  the tooltip doesn't interrupt the mouse events */
+  pointer-events: none;
+  border-radius: 5px;
+  box-shadow: 0 0 7px gainsboro;
+}
+
+.hover-content.visible{
+  opacity: 1;
+}
+
 rect {
     fill: steelblue
 }
 
 text {
     font-size: 1.8em;
+  fill : black;
 }
 
 svg{
@@ -11,7 +30,7 @@ svg{
 }
 
 body {
-    background-color: wheat;
+    background-color: whitesmoke;
 } 
 
 h1, h2, h3 {
@@ -27,3 +46,12 @@ div {
     text-align: Center;
 }
 
+.bubbles {
+
+stroke-width: 2px;
+stroke: white;
+}
+
+.bubbles:hover {
+stroke:black;
+}
