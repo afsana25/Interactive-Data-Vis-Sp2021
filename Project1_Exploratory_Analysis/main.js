@@ -93,6 +93,7 @@ const svg = container
   .append("text")
   .text("Fertilty rate Per Women vs Per capita Income in terms of population in Country")
   .attr("transform", `translate(${width/1.1}, ${0.2})`)
+  .style("font-size:", "10px")
 
 
   // Add circle
