@@ -2,14 +2,15 @@
   top: 0;
   left: 0;
   max-width: 300px;
+  max-height: 150px;
   background-color: white;
-  padding: .5em;
+  padding: 0px;
   opacity: 0;
   /* need to remove pointer events so that
   the tooltip doesn't interrupt the mouse events */
   pointer-events: none;
-  border-radius: 5px;
-  box-shadow: 0 0 7px gainsboro;
+  border-radius: 2px;
+  box-shadow: 0 0 2px gainsboro;
 }
 
 .hover-content.visible{
@@ -21,7 +22,7 @@ rect {
 }
 
 text {
-    font-size: 1.8em;
+    font-size: 1.5em;
   fill : black;
 }
 
@@ -36,14 +37,15 @@ body {
 h1, h2, h3 {
     color: black;
     text-align: Center;
+     font-size: 0.5em;
 }
 
 div {
 
-    padding: 10px;
-    box-sizing: border-box;
+    padding: 0px;
+    box-sizing: content-box;
 
-    text-align: Center;
+    text-align: left;
 }
 
 .bubbles {
