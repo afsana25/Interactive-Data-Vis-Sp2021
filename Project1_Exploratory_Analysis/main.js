@@ -5,7 +5,6 @@ const width = window.innerWidth*0.7,
 
   //let tooltip;
 
-
   //APPLICATION STATE
 
   let state = {
@@ -17,7 +16,7 @@ const width = window.innerWidth*0.7,
    Population_Count: null,
     Fertily_Rate: null,
      Per_Capita : null,
-    visible: true,
+    visible: false,
     }
   }
 
@@ -26,8 +25,10 @@ d3.csv("./Data/Data_Final.csv", d3.autoType).then(data =>
     {
       state.data = data
    console.log("state", data);
+
    init();
-    })
+    }
+)
 function init(){
   // Add X axis
   const xScale = d3.scaleLinear()
@@ -93,42 +94,6 @@ const svg = container
   .text("Fertilty rate Per Women vs Per capita Income in terms of population in Country")
   .attr("transform", `translate(${width/1.1}, ${0.2})`)
 
-const tooltip = container
-.append("div")
-.style("position", "absolute")
-.style("opacity", 0)
-.attr("class", "tooltip")
-//.style("top", 0)
-//.style("left", 0)
-.style("background-color", "black")
-.style("padding", "10px")
-.style("border-radius", "5px")
-.style("color", "white")
-
-// const showTooltip = function (d){
-//   var pageX=d3.event.pageX()
-//    var pageY=d3.event.pageY()
-//   tooltip.transition()
-// .duration(200)
-// tooltip.style("opacity", 1)
-// .html("Country: " + d.country)
-// .style("left", (pageX) + "px")		
-//  .style("top", (pageY - 28) + "px");
-// }
-//  const moveTooltip = function(d) {
-//      pageX=d3.event.pageX
-//       pageY=d3.event.pageY
-//     tooltip
-//     .style("opacity", 1)
-//      .style("left", (pageX) + "px")		
-//      .style("top", (pageY - 28) + "px");
-//   }
-// const hideTooltip = function(d) {
-//     tooltip
-//       .transition()
-//       .duration(200)
-//       .style("opacity", 0)
-//   }
 
   // Add circle
  svg.append("g")
@@ -153,24 +118,19 @@ const tooltip = container
       .style("opacity", "1")
       .attr("stroke", "black")
       .style("stroke-width", "2px")
-//       .on("mouseover", showTooltip )
-//     .on("mousemove", moveTooltip )
-//     .on("mouseleave", hideTooltip )
 
-
-// }
   .on("mouseover", (d)=>{
     state.hover= {
       position: [d.x, d.y],
-        Country_Name:  [d.Entity],
-   Population_Count: [d.Population19],
-    Fertily_Rate: [d.Fertility_rate19],
-     Per_Capita : [d.Per_Capita19],
+        Country_Name:  d.Entity,
+   Population_Count: d.Population19,
+    Fertily_Rate: d.Fertility_rate19,
+     Per_Capita : d.Per_Capita19,
     visible: true,
 }
 draw();
 }).on("mouseout", () => {
-  state.hover.visible = true;
+  state.hover.visible = false;
   draw()
 }) ,
       update => update,
@@ -197,8 +157,6 @@ function draw(){
     if (d.position)
     return`translate(${d.position[0]}px, ${d.position[1]}px)`})
     
-    //,d=> {if (d.hover.position) {
-      //  return `translate(${d.posistion[0]}px, ${d.position[1]}px)`}})
       .html(d=> {  
         return `<div> Country name: ${d.Country_Name}</div>
       <div> Population in 2019: ${d.Population_Count}<div>
@@ -207,10 +165,9 @@ function draw(){
     
 
   })
-
-  //tooltip.classed("visible", state.hover)
   }
   
 
      
     
+
