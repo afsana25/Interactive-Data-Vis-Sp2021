@@ -91,7 +91,7 @@ svg.selectAll("text.Fertility_rate19")
       .attr("class", 'Fertility_rate19')
       .attr("x", d => xScale(d.Region) + (xScale.bandwidth() / 2))
       .attr("y", d => yScale(d.Fertility_rate19))
-      .attr("dy", "-1em") // adjust the text a bit lower down
-     // .attr("text-anchor", 'middle') // set the x/y to refer to the middle of the word
-      .text(d => d3.format(",")(d.Fertility_rate19)) // set the text, add a formatter to properly format numbers: https://github.com/d3/d3-format
+      .attr("dy", "-1em") 
+     // .attr("text-anchor", 'middle')
+      .text(d => d3.format(",")(d.Fertility_rate19)) 
     })
