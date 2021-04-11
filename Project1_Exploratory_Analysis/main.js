@@ -86,13 +86,14 @@ const svg = container
    .attr("transform", `rotate(-90)`)
    .attr("text-anchor", "middle")
    .text("Fertility Rate of 2019")
+  
 
   svg.append("g")
   .attr("class", "yaxis")
-  .call(yAxis)
+  //.call(yAxis)
   .append("text")
   .text("Fertilty rate Per Women vs Per capita Income in terms of population in Country")
-  .attr("transform", `translate(${width/1.7}, ${0.2})`)
+  .attr("transform", `translate(${width/2}, ${0.2})`)
   .style("font-size:", "10px")
 
 
@@ -107,24 +108,24 @@ const svg = container
     .attr("class", "bubbles")
       .attr("cx", d=> xScale(d.Per_Capita19))
       .call(enter=> enter.transition()
-  .duration(1000)
+  .duration(4000)
       .attr("cy", d=> yScale(d.Fertility_rate19))
       //.attr("r", 2)
       .attr("r", d=> z((d.Population19)*0.4)))
       .style("fill", d=>colorScale(d.continent))
-      //.style("fill", "#d1848e")
        .attr("width", d => d.x)
         .attr("height", d => d.y)
 
       .style("opacity", "1")
       .attr("stroke", "black")
       .style("stroke-width", "2px")
-
-  .on("mouseover", (d)=>{
+  .on("mouseover", (event, d)=>{
+    console.log(`d`, d)
     state.hover= {
-      position: [d.x, d.y],
-        Country_Name:  d.Entity,
-   Population_Count: d.Population19,
+
+    position: [event.x, event.y],
+    Country_Name:  d.Entity,
+    Population_Count: d.Population19,
     Fertily_Rate: d.Fertility_rate19,
      Per_Capita : d.Per_Capita19,
     visible: true,
@@ -132,7 +133,7 @@ const svg = container
 draw();
 }).on("mouseout", () => {
   state.hover.visible = false;
-  draw()
+  draw();
 }) ,
       update => update,
       exit => exit
@@ -161,8 +162,8 @@ function draw(){
       .html(d=> {  
         return `<div> Country name: ${d.Country_Name}</div>
       <div> Population in 2019: ${d.Population_Count}<div>
-      <div> Firtilty Rate in 2019: ${d.Fertily_Rate}</div>
-      <div> Per Capita in 2019: ${d.Per_Capita }<div>`
+      <div> Firtilty Rate in 2019: ${d3.format(".2f")(d.Fertily_Rate)}</div>
+      <div> Per Capita in 2019: ${d3.format(".2f")(d.Per_Capita) }<div>`
     
 
   })
