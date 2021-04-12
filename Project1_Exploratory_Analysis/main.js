@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 const width = window.innerWidth*0.7,
   height = window.innerHeight*0.7,
-  margin = { top: 20, bottom: 50, left: 100, right: 40 };
+  margin = { top: 20, bottom: 55, left: 100, right: 40 };
 
   //let tooltip;
 
@@ -9,7 +9,6 @@ const width = window.innerWidth*0.7,
 
   let state = {
 
-    //data = null,
     hover: {
       position: null,
         Country_Name: null,
@@ -40,7 +39,7 @@ function init(){
   // Add Y axis
   const yScale = d3.scaleLinear()
     .domain(d3.extent(state.data, d=>d.Fertility_rate19))
-    .range([ height-margin.bottom, margin.top]);
+    .range([ height-margin.bottom, 0]);
 
 //+ AXES
     const xAxis = d3.axisBottom(xScale)
@@ -67,7 +66,7 @@ const svg = container
     .attr("text-anchor", "middle")
 
   svg.append("g")
-    .attr("transform", `translate(${0}, ${height})`)
+    .attr("transform", `translate(${0}, ${innerHeight})`)
     .attr("class", "xAxis")
     .attr("transform", `translate(${0}, ${height-margin.bottom})`) //translate(x,y)
     .call(xAxis)
@@ -95,6 +94,23 @@ const svg = container
   .text("Fertilty rate Per Women vs Per capita Income in terms of population in Country")
   .attr("transform", `translate(${width/2}, ${0.2})`)
   .style("font-size:", "10px")
+
+
+
+//  // What to do when one group is hovered
+//   const highlight = d=> {
+//     // reduce opacity of all groups
+//     d3.selectAll(".bubbles").style("opacity", .05)
+//     // expect the one that is hovered
+//     d3.selectAll("."+d).style("opacity", 1)
+//   }
+
+//   // And when it is not hovered anymore
+//   const noHighlight = d=>{
+//     d3.selectAll(".bubbles").style("opacity", 1)
+//   }
+
+
 
 
   // Add circle
@@ -143,6 +159,35 @@ draw();
           .attr("cy", height))
           .remove()
       
+
+//// legend
+
+   
+
+    // Add one dot in the legend for each name.
+    const allgroups = Array.from(new Set(d3.map(state.data, d=>d.continent)))
+    svg.selectAll("myrect")
+      .data(allgroups)
+      .enter()
+      .append("circle")
+        .attr("cx", innerWidth*0.6)
+        .attr("cy", (d,i) =>innerHeight*0.2- i*15) // 100 is where the first dot appears. 25 is the distance between dots
+        .attr("r", 7)
+        .style("fill", d => colorScale(d))
+        // .on("mouseover", highlight)
+        // .on("mouseleave", noHighlight)
+
+    // Add labels beside legend dots
+    svg.selectAll("mylabels")
+      .data(allgroups)
+      .enter()
+      .append("text")
+        .attr("x", innerWidth*0.67)
+        .attr("y", (d,i) => innerHeight*0.2- i*15) // 100 is where the first dot appears. 25 is the distance between dots
+        .style("fill", (d) => colorScale(d))
+        .text(d => d)
+  
+
 }
 //DRAW FUNCTION
 

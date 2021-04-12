@@ -29,10 +29,12 @@ text {
 
 svg{
     border: black 5px solid;
+    align-content: center;
 }
 
 body {
     background-color: whitesmoke;
+    align-content: center;
 } 
 
 h1, h2, h3 {
@@ -47,7 +49,7 @@ div {
     box-sizing: content-box;
     text-size-adjust: 10px;
 
-    text-align: left;
+    text-align: center;
 }
 
 .bubbles {
@@ -59,8 +61,3 @@ stroke: white;
 .bubbles:hover {
 stroke:black;
 }
-
-/* /* .legend {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 60%; 
-} */
