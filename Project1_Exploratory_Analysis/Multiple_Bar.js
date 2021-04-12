@@ -17,6 +17,10 @@ d3.csv("./Data/Statistics.csv", d3.autoType).then(data1 =>
       state1.data1 = data1
     console.log("data", data1);
 
+    data1.sort(function(b, a){
+      return a.Participant_Rate -b.Participant_Rate
+    })
+
     init1();
     }
 
@@ -68,10 +72,15 @@ const svg = d3.select("#barchart")
     .attr("transform", `translate(${margin.left}, ${margin.top})`)
     .attr("text-anchor", "middle")
 
+
+
+
     svg.append("g")
     .attr("transform", `translate(${0}, ${height})`)
     .attr("class", "xAxis")
     .attr("transform", `translate(${0}, ${innerHeight})`) //translate(x,y)
+    //.attr("transform", "translate(-10,0)rotate(-45)")
+      //.style("text-anchor", "middle")
     .call(xAxis1)
     .append("text")
   .text("Female Employment participant rate in terms of Region")
@@ -86,11 +95,15 @@ svg.selectAll("rect").data(state1.data1) //data join
 .enter().append("rect")
 .attr("width", x.bandwidth())
 .attr("height", d=>innerHeight-y(d.Participant_Rate))
+.transition()
+.duration(800)
+.delay(function(d,i){console.log(i) ; return(i*100)})
 .attr("x", d=>x(d.Region))
 .attr("y", d=>y(d.Participant_Rate))
 .style("fill", d=>colorScale1(d.Region))
 .attr("class", "bubbles")
 .attr("text-anchor", 'middle')
+
 
 svg.selectAll("text.Participant_Rate")
       .data(state1.data1)
