@@ -1,4 +1,4 @@
-﻿Entity,Code,Fertility_rate19,Population19,Participant_Rate19,Male_Female_Ration_Employment,continent,Per_Capita19,Region,IncomeGroup
+Entity,Code,Fertility_rate19,Population19,Participant_Rate19,Male_Female_Ration_Employment,continent,Per_Capita19,Region,IncomeGroup
 Afghanistan,AFG,4.321,38042000,8.21000003814697,29.2002163299969,Asia,507.103431871987,South Asia,Low income
 Angola,AGO,5.442,31825000,12.6800003051758,96.5617874968724,Africa,2790.72661520665,Sub-Saharan Africa,Lower middle income
 Albania,ALB,1.597,2881000,47.8699989318848,77.1390823437384,Europe,5353.2448564014,Europe & Central Asia,Upper middle income
@@ -35,7 +35,6 @@ Cuba,CUB,1.602,11333000,87.4100036621094,61.8480570458855,North America,NULL,Lat
 Cyprus,CYP,1.321,1199000,89.5,83.6523281840866,Asia,27858.3709958327,Europe & Central Asia,High income
 Germany,DEU,1.6,83517000,93.0199966430664,82.958102941429,Europe,46445.2491012508,Europe & Central Asia,High income
 Djibouti,DJI,2.676,974000,58.1100006103516,73.9865854822571,Africa,3414.92486968779,Middle East & North Africa,Lower middle income
-Dominica,DMA,NULL,72000,NULL,NULL,North America,8110.56851191655,Latin America & Caribbean,Upper middle income
 Denmark,DNK,1.764,5772000,94.620002746582,86.8417100420343,Europe,60170.3426365069,Europe & Central Asia,High income
 Dominican Republic,DOM,2.323,10739000,70.5999984741211,67.9309060863451,North America,8282.11635935324,Latin America & Caribbean,Upper middle income
 Algeria,DZA,2.988,43053000,74.5199966430664,25.1033053314896,Africa,3973.96407191565,Middle East & North Africa,Lower middle income
