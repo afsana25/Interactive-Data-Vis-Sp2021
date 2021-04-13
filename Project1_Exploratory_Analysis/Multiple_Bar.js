@@ -98,7 +98,6 @@ svg.selectAll("rect").data(state1.data1) //data join
 .attr("height", d=>innerHeight-y(d.Participant_Rate))
 .transition()
 .duration(8000)
-.delay(function(d,i){console.log(i) ; return(i*100)})
 .attr("x", d=>x(d.Region))
 .attr("y", d=>y(d.Participant_Rate))
 .style("fill", d=>colorScale1(d.Region))
