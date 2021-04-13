@@ -120,6 +120,9 @@ const svg = container
       .style("opacity", "1")
       .attr("stroke", "black")
       .style("stroke-width", "2px")
+      .call(d3.zoom()
+      .scaleExtent([.5, 20])  // This control how much you can unzoom (x0.5) and zoom (x20)
+      .extent([[0, 0], [width, height]]))
   .on("mouseover", (event, d)=>{
     console.log(`d`, d)
     state.hover= {
@@ -169,7 +172,6 @@ draw();
         .attr("y", (d,i) => innerHeight*0.2- i*15) // This is place  where the first dot appears. 25 is the distance between dots
         .style("fill", (d) => colorScale(d))
         .text(d => d)
-  
 
 }
 //DRAW FUNCTION

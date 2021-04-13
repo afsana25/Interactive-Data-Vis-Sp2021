@@ -64,7 +64,7 @@ const colorScale1 = d3.scaleOrdinal()
   .range(d3.schemeSet2);
 
 //svg
-const svg = d3.select("#barchart")
+const svg = d3.select("#barchart2")
 .append("svg")
 .attr("width", width)
 .attr("height", height)
