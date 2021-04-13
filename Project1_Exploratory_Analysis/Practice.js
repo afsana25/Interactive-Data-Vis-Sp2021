@@ -59,8 +59,8 @@ const xAxis = g => g
 
   
 const colorScale = d3.scaleOrdinal()
-  .domain(keys)
-  .range(d3.schemeSet2);
+  //.domain(keys)
+  .range(["#69486b", "#8a89a6"]);
 
 
 const svg = d3.select("#barchart")
@@ -89,13 +89,17 @@ const svg = d3.select("#barchart")
       .attr("y", d => y(d.value))
       .attr("width", x.bandwidth())
       .attr("height", d => innerHeight- y(d.value))
-      .attr("fill", d => colorScale(d.key))
+      //.attr("fill", d => colorScale(d.key))
       .attr("class", "bubbles")
 
 
+const allgroups = [["Male and Female Employment Ratio"] , [ "Participation Rate" ]]
 
-svg.selectAll("mydots")
-  .data(keys)
+console.log("allgroups", allgroups)
+
+
+svg.selectAll("myrects")
+  .data(allgroups)
   .enter()
   .append("circle")
     .attr("cx", innerWidth*0.75)
@@ -103,18 +107,20 @@ svg.selectAll("mydots")
     .attr("r", 7)
     .style("fill", d=> colorScale(d))
 
-// Add one dot in the legend for each name.
+  
+
+// // Add one dot in the legend for each name.
 svg.selectAll("mylabels")
-  .data(keys)
+  .data(allgroups)
   .enter()
   //.join("mylabels")
   .append("text")
     .attr("x",innerWidth*0.8)
     .attr("y", (d, i)=> innerHeight*0.05 + i*25) //  where the first dot appears. 25 is the distance between dots
-    .style("fill", d=> colorScale(d.keys))
+    .style("fill", d=> colorScale(d))
     .text(d=> d)
-    .attr("text-anchor", "left")
-    .style("alignment-baseline", "left")
+    //.attr("text-anchor", "left")
+    //.style("alignment-baseline", "left")
 
 
 })

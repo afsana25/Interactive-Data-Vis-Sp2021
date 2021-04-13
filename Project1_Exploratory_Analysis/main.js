@@ -52,7 +52,7 @@ function init(){
 
   const colorScale = d3.scaleOrdinal()
   //.domain(["Asia", "Europe", "North America", "South America", "Africa", "Australia and Ocenia"])
-  .domain(Array.from(new Set(d3.map(state.data, d=>d.continent))))
+  .domain(Array.from(new Set(d3.map(state.data, d=>d.Region))))
   .range(d3.schemeSet2);
 
 // Create SVG
@@ -113,7 +113,7 @@ const svg = container
       .attr("cy", d=> yScale(d.Fertility_rate19))
       //.attr("r", 2)
       .attr("r", d=> z((d.Population19)*0.4)))
-      .style("fill", d=>colorScale(d.continent))
+      .style("fill", d=>colorScale(d.Region))
        .attr("width", d => d.x)
         .attr("height", d => d.y)
 
@@ -153,12 +153,12 @@ draw();
    
 
     // Add one dot in the legend for each name.
-    const allgroups = Array.from(new Set(d3.map(state.data, d=>d.continent)))
+    const allgroups = Array.from(new Set(d3.map(state.data, d=>d.Region)))
     svg.selectAll("myrect")
       .data(allgroups)
       .enter()
       .append("circle")
-        .attr("cx", innerWidth*0.6)
+        .attr("cx", innerWidth*0.58)
         .attr("cy", (d,i) =>innerHeight*0.2- i*15) // This is place where the first dot appears. 25 is the distance between dots
         .attr("r", 7)
         .style("fill", d => colorScale(d))
@@ -168,10 +168,12 @@ draw();
       .data(allgroups)
       .enter()
       .append("text")
-        .attr("x", innerWidth*0.67)
+        .attr("x", innerWidth*0.66)
         .attr("y", (d,i) => innerHeight*0.2- i*15) // This is place  where the first dot appears. 25 is the distance between dots
         .style("fill", (d) => colorScale(d))
         .text(d => d)
+        .attr("text-anchor", "left")
+        .style("alignment-baseline", "left")
 
 }
 //DRAW FUNCTION
@@ -191,9 +193,9 @@ function draw(){
     
       .html(d=> {  
         return `<div> Country name: ${d.Country_Name}</div>
-      <div> Population in 2019: ${d.Population_Count}<div>
+      <div> Population in 2019: ${d3.format(",")(d.Population_Count)}<div>
       <div> Firtilty Rate in 2019: ${d3.format(".2f")(d.Fertily_Rate)}</div>
-      <div> Per Capita in 2019: ${d3.format(".2f")(d.Per_Capita) }<div>`
+      <div> Per Capita in 2019: ${"$"+d3.format(",.2f")(d.Per_Capita) }<div>`
     
 
   })
