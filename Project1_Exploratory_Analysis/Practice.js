@@ -110,7 +110,7 @@ svg.selectAll("mylabels")
   //.join("mylabels")
   .append("text")
     .attr("x",innerWidth*0.8)
-    .attr("y", (d, i)=> innerHeight*0.05 + i*25) // 100 is where the first dot appears. 25 is the distance between dots
+    .attr("y", (d, i)=> innerHeight*0.05 + i*25) //  where the first dot appears. 25 is the distance between dots
     .style("fill", d=> colorScale(d.keys))
     .text(d=> d)
     .attr("text-anchor", "left")
