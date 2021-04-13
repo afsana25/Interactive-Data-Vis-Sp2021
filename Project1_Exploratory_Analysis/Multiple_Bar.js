@@ -97,7 +97,7 @@ svg.selectAll("rect").data(state1.data1) //data join
 .attr("width", x.bandwidth())
 .attr("height", d=>innerHeight-y(d.Participant_Rate))
 .transition()
-.duration(4000)
+.duration(8000)
 .delay(function(d,i){console.log(i) ; return(i*100)})
 .attr("x", d=>x(d.Region))
 .attr("y", d=>y(d.Participant_Rate))

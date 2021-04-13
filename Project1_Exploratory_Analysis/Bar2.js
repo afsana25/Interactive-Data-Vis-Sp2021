@@ -95,7 +95,7 @@ svg.selectAll("rect").data(state2.data2) //data join
 .attr("width", x.bandwidth())
 .attr("height", d=>innerHeight-y(d.Employment_ratio))
 .transition()
-.duration(4000)
+.duration(8000)
 //.delay(function(d,i){console.log(i) ; return(i*100)})
 .attr("x", d=>x(d.Region))
 .attr("y", d=>y(d.Employment_ratio))
