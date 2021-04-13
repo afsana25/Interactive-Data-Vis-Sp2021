@@ -97,21 +97,6 @@ const svg = container
 
 
 
-//  // What to do when one group is hovered
-//   const highlight = d=> {
-//     // reduce opacity of all groups
-//     d3.selectAll(".bubbles").style("opacity", .05)
-//     // expect the one that is hovered
-//     d3.selectAll("."+d).style("opacity", 1)
-//   }
-
-//   // And when it is not hovered anymore
-//   const noHighlight = d=>{
-//     d3.selectAll(".bubbles").style("opacity", 1)
-//   }
-
-
-
 
   // Add circle
  svg.append("g")
@@ -171,11 +156,9 @@ draw();
       .enter()
       .append("circle")
         .attr("cx", innerWidth*0.6)
-        .attr("cy", (d,i) =>innerHeight*0.2- i*15) // 100 is where the first dot appears. 25 is the distance between dots
+        .attr("cy", (d,i) =>innerHeight*0.2- i*15) // This is place where the first dot appears. 25 is the distance between dots
         .attr("r", 7)
         .style("fill", d => colorScale(d))
-        // .on("mouseover", highlight)
-        // .on("mouseleave", noHighlight)
 
     // Add labels beside legend dots
     svg.selectAll("mylabels")
@@ -183,7 +166,7 @@ draw();
       .enter()
       .append("text")
         .attr("x", innerWidth*0.67)
-        .attr("y", (d,i) => innerHeight*0.2- i*15) // 100 is where the first dot appears. 25 is the distance between dots
+        .attr("y", (d,i) => innerHeight*0.2- i*15) // This is place  where the first dot appears. 25 is the distance between dots
         .style("fill", (d) => colorScale(d))
         .text(d => d)
   
