@@ -82,7 +82,7 @@ const svg = d3.select("#barchart1")
     .call(xAxis1)
     .append("text")
   .text("Female Employment Participant Rate in terms of Region")
-  .attr("transform", `translate(${width*0.5}, ${-height/1.2})`)
+  .attr("transform", `translate(${width*0.5}, ${-height/1.1})`)
   .style("font-size:", "10px")
 
 //bars

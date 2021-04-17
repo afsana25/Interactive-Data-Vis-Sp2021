@@ -9,7 +9,7 @@ d3.csv("./Data/Final_Statistics2.csv", d3.autoType).then (data => {
   const width = window.innerWidth*0.7 ; //  80 percent of width of the window
 const height = window.innerHeight*0.7 ; // 70 percent of the height of the window
 
-const margin = {top: 20, right:30, bottom: 10., left: 100 };
+const margin = {top: 20, right:30, bottom: 10., left: 80 };
 const innerWidth = width-margin.left-margin.right;
 const innerHeight = height-margin.top-margin.bottom;
 
@@ -109,8 +109,8 @@ const legend  = svg.selectAll(".LegendItem")
 .attr("transform", `translate(${0},${innerHeight*0.05})`)
 
  legend.append("circle")
-    .attr("cx", innerWidth*0.68)
-    .attr("cy", (d,i) =>innerHeight*0.008+i*25)
+    .attr("cx", innerWidth*0.88)
+    .attr("cy", (d,i) =>innerHeight*0.007+i*25)
     .attr("r", 7)
 
 
@@ -118,8 +118,8 @@ const legend  = svg.selectAll(".LegendItem")
 
 // // Add one dot in the legend for each grroup name.
 legend.append("text")
-    .attr("x",innerWidth*0.7)
-    .attr("y", (d, i)=> innerHeight*0.07 - i*25) //  where the first dot appears. 25 is the distance between dots
+    .attr("x",innerWidth*0.9)
+    .attr("y", (d, i)=> innerHeight*0.06 - i*25) //  where the first dot appears. 25 is the distance between dots
     .text(d=> d)
 
 
