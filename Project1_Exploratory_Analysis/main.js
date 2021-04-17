@@ -150,39 +150,6 @@ draw();
           .remove()
 
 
-const zoom = d3.zoom()
-      .scaleExtent([.5, 20])  // This control how much you can unzoom (x0.5) and zoom (x20)
-      .extent([[0, 0], [width, height]])
-      .on("zoom", updateChart);
-
-  // This add an invisible rect on top of the chart area. This rect can recover pointer events: necessary to understand when the user zoom
-  svg.append("rect")
-      .attr("width", width)
-      .attr("height", height)
-      .style("fill", "none")
-      .style("pointer-events", "all")
-      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
-      .call(zoom);
-      
-
-
-          function updateChart() {
-
-    // recover the new scale
-    var newX = d3.event.transform.rescaleX(xScale);
-    var newY = d3.event.transform.rescaleY(yScale);
-
-    // update axes with these new boundaries
-    xAxis.call(d3.axisBottom(newX))
-    yAxis.call(d3.axisLeft(newY))
-
-    // update circle position
-    scatter
-      .selectAll("circle")
-      .attr('cx', function(d) {return newX(d.Per_Capita19)})
-      .attr('cy', function(d) {return newY(d.Fertility_rate19)})
-      //.attr()
-  }
 
 
 //// legend
