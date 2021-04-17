@@ -23,6 +23,9 @@ console.log("keys", keys)
   //const groups = d3.map(data, d=>(d.Region))
   console.log("groupKey", groupKey)
 
+   data.sort(function(b, a){
+      return a.Participant_Rate -b.Participant_Rate
+    })
 
 
     x0 = d3.scaleBand()
@@ -59,8 +62,8 @@ const xAxis = g => g
 
   
 const colorScale = d3.scaleOrdinal()
-  //.domain(keys)
-  .range(["#69486b", "#8a89a6"]);
+  .domain(keys)
+  .range(["#80ced6", "#ffef96"]);
 
 
 const svg = d3.select("#barchart")
@@ -89,38 +92,74 @@ const svg = d3.select("#barchart")
       .attr("y", d => y(d.value))
       .attr("width", x.bandwidth())
       .attr("height", d => innerHeight- y(d.value))
-      //.attr("fill", d => colorScale(d.key))
+      .attr("fill", d => colorScale(d.key))
       .attr("class", "bubbles")
 
 
-const allgroups = [["Male and Female Employment Ratio"] , [ "Participation Rate" ]]
+const allgroups = ["Female Participation Rate", "Male and Female Employment Ratio",  ]
 
 console.log("allgroups", allgroups)
 
+const legend  = svg.selectAll(".LegendItem")
+.data(allgroups).join("g")
+.attr("class", "LegendItem" )
+ .style("fill", d=> colorScale(d))
+.attr("transform", `translate(${0},${innerHeight*0.05})`)
 
-svg.selectAll("myrects")
-  .data(allgroups)
-  .enter()
-  .append("circle")
-    .attr("cx", innerWidth*0.75)
-    .attr("cy", (d,i) =>innerHeight*0.1- i*25)
+ //.attr("y", (d, i)=> innerHeight*0.6 + i*25)
+// svg.selectAll("myrects")
+//   .data(allgroups)
+//   .enter()
+ legend.append("circle")
+    .attr("cx", innerWidth*0.68)
+    .attr("cy", (d,i) =>innerHeight*0.008+i*25)
     .attr("r", 7)
-    .style("fill", d=> colorScale(d))
+
 
   
 
 // // Add one dot in the legend for each name.
-svg.selectAll("mylabels")
-  .data(allgroups)
-  .enter()
-  //.join("mylabels")
-  .append("text")
-    .attr("x",innerWidth*0.8)
-    .attr("y", (d, i)=> innerHeight*0.05 + i*25) //  where the first dot appears. 25 is the distance between dots
-    .style("fill", d=> colorScale(d))
+legend.append("text")
+    .attr("x",innerWidth*0.7)
+    //.attr("transform", `translate(${0},${innerHeight*0.1})`)
+    .attr("y", (d, i)=> innerHeight*0.07 - i*25) //  where the first dot appears. 25 is the distance between dots
+    //.style("fill", d=> colorScale(d))
     .text(d=> d)
-    //.attr("text-anchor", "left")
-    //.style("alignment-baseline", "left")
+    // .attr("text-anchor", "left")
+    // .style("alignment-baseline", "left")
+
+
+    svg.append("g")
+    .selectAll("g")
+    .data(data)
+    .enter()
+    .append("g")
+      .attr("transform", d => `translate(${x0(d[groupKey])},0)`)
+      //.selectAll("rect")
+    .data(d => keys.map(key=> ({key:key, value:d[key]})))
+    .enter()//.append("rect")
+    //.transition()
+    //.duration(8000)
+      .attr("x", d => x(d.key))
+      .attr("y", d => y(d.value))
+      .attr("width", x.bandwidth())
+      .attr("height", d => innerHeight- y(d.value))
+       .attr("dy", "-1em") 
+     // .attr("text-anchor", 'middle')
+      .text(d => d3.format(".0%")((d.value)/100)) 
+
+    // svg.selectAll("text")
+    // .append("g")
+    // .data(data)
+    //   .attr("transform", d => `translate(${x0(d[groupKey])},0)`)
+    //   .data(d => keys.map(key=> ({key:key, value:d[key]})))
+    //   .join("text")
+    //  // .attr("class", 'Participant_Rate')
+    //   .attr("x", d => x(d.key)+ (x.bandwidth() / 2))
+    //   .attr("y", d => y(d.value))
+    //   .attr("dy", "-1em") 
+    //  // .attr("text-anchor", 'middle')
+    //   .text(d => d3.format(".0%")((d.value)/100)) 
 
 
 })
