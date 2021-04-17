@@ -15,12 +15,13 @@ const width = window.innerWidth*0.7,
    Population_Count: null,
     Fertily_Rate: null,
      Per_Capita : null,
+     IncomeGroup: null,
     visible: false,
     }
   }
 
 //Read the data
-d3.csv("./Data/Data_Final.csv", d3.autoType).then(data => 
+d3.csv("./Data/Final_Data.csv", d3.autoType).then(data => 
     {
       state.data = data
    console.log("state", data);
@@ -132,6 +133,7 @@ const svg = container
     Population_Count: d.Population19,
     Fertily_Rate: d.Fertility_rate19,
      Per_Capita : d.Per_Capita19,
+     Income_Group: d.IncomeGroup,
     visible: true,
 }
 draw();
@@ -195,7 +197,8 @@ function draw(){
         return `<div> Country name: ${d.Country_Name}</div>
       <div> Population in 2019: ${d3.format(",")(d.Population_Count)}<div>
       <div> Firtilty Rate in 2019: ${d3.format(".2f")(d.Fertily_Rate)}</div>
-      <div> Per Capita in 2019: ${"$"+d3.format(",.2f")(d.Per_Capita) }<div>`
+      <div> Per Capita in 2019: ${"$"+d3.format(",.2f")(d.Per_Capita) }<div>
+      <div> Income Group in 2019: ${(d.Income_Group) }<div>`
     
 
   })
