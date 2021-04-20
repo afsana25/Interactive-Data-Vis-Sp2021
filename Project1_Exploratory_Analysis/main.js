@@ -46,7 +46,7 @@ function init(){
     const xAxis = d3.axisBottom(xScale)
     const yAxis = d3.axisLeft(yScale)
   // Add a scale for bubble size
- const z = d3.scaleLinear()
+ const z = d3.scaleSqrt()
     .domain(d3.extent(state.data, d=>d.Population19))
   //.range([margin.left, margin.right]);
   .range([4, 90])
@@ -113,7 +113,7 @@ const svg = container
   .duration(4000)
       .attr("cy", d=> yScale(d.Fertility_rate19))
       //.attr("r", 2)
-      .attr("r", d=> z((d.Population19)*0.4)))
+      .attr("r", d=> z((d.Population19)*0.3)))
       .style("fill", d=>colorScale(d.Region))
        .attr("width", d => d.x)
         .attr("height", d => d.y)
