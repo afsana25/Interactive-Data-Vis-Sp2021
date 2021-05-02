@@ -66,7 +66,7 @@ projection = d3.geoEqualEarth()
 
         svg.append("g")
         .selectAll("path")
-        .data(state.population)
+        .data(state.geojson.features)
         .enter().append("path")
          .style("stroke", "#fff")
              .attr("d", pathFunction)
