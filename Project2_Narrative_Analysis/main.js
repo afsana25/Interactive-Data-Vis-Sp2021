@@ -1,4 +1,4 @@
-const width = window.innerWidth * 0.9,
+const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7,
   margin = { top: 20, bottom: 50, left: 60, right: 40 };
 
@@ -62,6 +62,8 @@ projection = d3.geoEqualEarth()
             //.attr("fill", "#69b3a2")
             .attr("d", pathFunction)
             .style("stroke", "#fff")
+            .attr("class", "bubbles")
+
            
 
         svg.append("g")
@@ -72,6 +74,7 @@ projection = d3.geoEqualEarth()
              .attr("d", pathFunction)
           .attr("fill", d=> {
         return colorScale(d.Population)})
+        .attr("class", "bubbles")
 }
 
   

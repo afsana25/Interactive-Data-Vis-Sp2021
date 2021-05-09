@@ -1,31 +1,7 @@
-.hover-content{
-  top: 0;
-  left: 0;
-  max-width: 300px;
-  max-height: 100px;
-  background-color: #d1848e;
-  padding: 0px;
-  opacity: 0;
- text-size-adjust: 10px;
-  /* need to remove pointer events so that
-  the tooltip doesn't interrupt the mouse events */
-  pointer-events: none;
-  border-radius: 2px;
-  box-shadow: 0 0 2px gainsboro;
-}
-
-.hover-content.visible{
-  opacity: 1;
-}
-
-/* rect {
-    fill: steelblue
-} */
-
 text {
     /* font-size: 1.0em; */
   fill : black;
-} 
+}
 
 svg{
     border: black 5px solid;

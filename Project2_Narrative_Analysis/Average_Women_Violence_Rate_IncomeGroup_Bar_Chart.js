@@ -59,7 +59,7 @@ console.log(y.domain(), y.range())
 const colorScale1 = d3.scaleOrdinal()
   //.domain(["Asia", "Europe", "North America", "South America", "Africa", "Australia and Ocenia"])
   .domain(d3.map(state4.data4, d=>d.IncomeGroup))
-  .range(d3.schemeSet2);
+  .range(d3.schemeSet3);
 
 //svg
 const svg = d3.select("#barchart3")
@@ -81,9 +81,10 @@ const svg = d3.select("#barchart3")
       //.style("text-anchor", "middle")
     .call(xAxis1)
     .append("text")
-  .text("Women Violence in terms  of IncomeGroup")
+  .text("Average Women Violence Rate in terms  of IncomeGroup")
   .attr("transform", `translate(${width*0.5}, ${-height/1.1})`)
   .style("font-size:", "10px")
+  .attr("fill", "black")
 
 //bars
 //select

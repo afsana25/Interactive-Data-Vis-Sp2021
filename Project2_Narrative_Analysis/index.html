@@ -1,21 +1,172 @@
-
 <!DOCTYPE html>
-<meta charset="utf-8">
 
-<script src="style.css"></script>
+<head>
+    <meta charset="utf-8">
+    <title>Interactive Data Visualization : Exploratory Project</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
 
- <div id="d3-container"> </div>
-<div id="barchart1"> </div>
-<div id = "barchart2"></div>
-<div id="barchart3"></div>
+<body>
+    <h1>Narrative Project: Why Women Have Less Participation Rate in Employment?</h1>
+    <cite>
+        <h2>Afsana Mimi</h2>
+    </cite>
+    <!--h3> Bubble Chart </h3-->
 
-<script src="../lib/d3.js"></script>
-<script src="../lib/d3.min.js"></script>
+    <body>
+        <blockquote>
+            <h3>Overview of the Project:</h3>
+            <blockquote>
+                <p> The Narrative project shows the socio-economic indicators such as Women Literacy Rate and Women Violence Rate can affect
+                their participation in Employment in terms of regions in the world. The World choropleth map will be showing an average
+                Education rate 2018(the most updated data) and violence rate in the country for 2019. The first bar charts demonstrate
+                the female Literacy Rate, and the last bar chart shows the average female violence rate in terms of income group,
+                sorting through the highest to lowest percentage. The previous project I have worked on, the Exploratory project, is
+                "How Women's Fertility and Employment Participation Rate are Shaping World Economic." This narrative project breaks down
+                more of the Exploratory Project. Its primary focus is to show the education rate and how safe the country is for women
+                compared to low to high-income countries. The data have collected from <cite> <a
+                            href="https://data.oecd.org/" target="_blank"> Visit Organisation for Economic Co-operation and Development.org!</a> </cite>. I have collected, cleaned, and combined data
+                    <!--<a href="./data/Data_Final.csv">Actual Data!</a>-->. The data involves only 135 countries since
+                    some
+                    countries of have missing data, so I have deducted those from this project. For data visualization, I
+                    have used D3 and JavaScript. The codes I have used from the <b><cite>Interactive Data
+                            Visualization</cite></b>
+                    class tutorial, and an online resource <cite> <a href="https://www.d3-graph-gallery.com/"
+                            target="_blank">Visit D3 Graph Gallery.com!</a> </cite>.
+                    The data visualization shows that women with less education rate and more violence towards women refrain them to participate in employment
+                in a country.
+            </blockquote>
 
-<script src="main.js"></script>
-<!-- <script src="Bar.js"></script> -->
-<script src="Average_Women_Violence_Rate_IncomeGroup_Bar_Chart.js"></script>
-<script src="Average_Literacy_Rate_IncomeGroup_Bar_Chart.js"></script> 
+            <blockquote>
+                <p>Here are a few of the records of the data.</p>
+            </blockquote>
+            <blockquote>
+                <p>
+                <blockquote>
+                    <img src="./Image/Data.png" alt="">
+                </blockquote>
+                </p>
+            </blockquote>
+
+            </p>
+        </blockquote>
+    </body>
+    <p>
+
+    <blockquote>
+        <h3> Indicators: </h3>
+        Some Prominent indicators have given below:
+
+        <blockquote>
+            <li> <cite> <b> Entity:</b> </cite> It represents each country. </li>
+            <li><cite><b>Code: </b> </cite>It represents each country code. </li>
+            <li><cite><b> longitude:</b> </cite>It represents the geographic, logitude of the country.</li>
+            <li> <cite> <b>lattitude</b> </cite> It represents the geographic, logitude of the country.</li>
+            <li><cite><b> Male_Female_Ratio_Employment:</b> </cite>It represents the percentage of women's employment
+                participation with male employment participation in each country for
+                2019.</li>
+            <li> <cite><b> Women_Violence:</b> </cite> It represents the violence towards women in the country for 2019. </li>
+            <li><cite> <b>Literacy_rate_2018:</b> </cite> It represents the literacy rate of each country for 2018.</li>
+            <li><cite><b> Region:</b> </cite>It represents the region in which the country belongs.</li>
+            <li><cite><b> IncomeGroup:</b> </cite> It represents the income group in which the country belongs based on
+                the GDP per Capita.</li>
+
+        </blockquote>
+
+
+        <!-- <p>
+        <h4>What is GDP Per Capita?</h4>
+        <p>
+        <blockquote> According to <cite> <a
+                    href="https://www.investopedia.com/terms/p/per-capita-gdp.asp#:~:text=Key%20Takeaways-,Per%20capita%20gross%20domestic%20product%20(GDP)%20is%20a%20metric%20that,a%20country%20by%20its%20population.&text=Small%2C%20rich%20countries%20and%20more,the%20highest%20per%20capita%20GDP."
+                    target="_blank"> www.investopedia.com</a></cite>, the gross domestic product of a country is an
+            economic indicator which is the value of all productions such as goods and
+            services made in a country in a specific time. The GDP per capita has calculated by dividing the GDP of a
+            country by its
+            population. It defines a person's income in a country in a specific year. </blockquote>
+        </p>
+
+        </p> -->
+
+
+        </p>
+
+        <p>
+        <blockquote>
+            <h4>World Choropleth Map: (Still Working in the code....)</h4>
+        </blockquote>
+
+        <p>
+        <div id="d3-container"> </div>
+        </p>
+
+        <blockquote>
+            In the Choropleth Map,....... More discription is comming......
+        </blockquote>
+        </p>
+
+        <!-- <p><a href="./data/Data_Final.csv"> Firtility Data </a></p> -->
+        <!-- <p><label for="dropdown2">Filter Selection
+            <select id="dropdown2" name="dropdown2"></select>
+            <p></p>
+        </label> -->
+        <p>
+        <blockquote>
+            <h4> Bar Charts:</h4>
+            <!-- <p>In the first bart chart, the X-axis represents certain countries' income groups in the bar charts, and the
+                Y-axis represented the women's participation
+                rates in those Regions in 2019. We can easily see North America's women have more participation rate
+                than other regions.</p> -->
+
+        </blockquote>
+
+        <div id="barchart3"></div>
+
+        <blockquote>
+            <p>The below graph shows average women wiolence rate in terms of IncomeGroup. We can easily see that
+                high income group has less women wiolence rates comapared to other groups.
+            </p>
+        </blockquote>
+        <div id="barchart2"></div>
+
+        <blockquote>
+            <p> The below graph shows average women literacy rate in terms of IncomeGroup. We can easily see that
+            high income group has more women literacy rates comapared to other groups. </p>
+
+        </blockquote>
+
+        <!-- <div id="barchart"></div>
+
+        So it can be other reasons, or women are facing other issues. I hope I can break down and answer the question in
+        the upcoming
+        narrative project.
+
+        </p> -->
+
+        <p>More discription is comming.....</p>
+
+        <!-- <p>
+        <h4>The Reason of Chosing the Topic:</h4>
+        <blockquote>First of all, I am a woman, and much research talks about women's empowerment. However, in some
+            regions or countries,
+            women do not get enough equality as men. They do not get enough education and a safe place to work. Since I
+            belong to
+            South Asia and currently living in the USA, and I can see the difference, I choose this topic to analyze.
+            Since I want to be a
+            data analyst in socio-economy development, people who do the socio-economic analysis are good for
+            understanding the data
+            and visualization. I think most people will easily familiar with this data visualization.</blockquote>
+        </p> -->
+
+        <script src="../lib/d3.js"></script>
+        <script src="main.js"></script>
+        <script src="Average_Women_Violence_Rate_IncomeGroup_Bar_Chart.js"></script>
+        <script src="Average_Literacy_Rate_IncomeGroup_Bar_Chart.js"></script>
+
+        <!-- <script src="Bar.js"></script> -->
+
+        <script src="../d3.min.js"></script>
+
 
 
 </body>
