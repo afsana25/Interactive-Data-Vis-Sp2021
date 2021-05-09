@@ -9,7 +9,7 @@ let state4 = {
   }
 
 
-d3.csv("./Data/IncomGroup_Women_violence_Rate.csv", d3.autoType).then(data4 => 
+d3.csv("./Data/IncomGroup_Women_violence_Rate_Avg.csv", d3.autoType).then(data4 => 
     {
 
       state4.data4 = data4
