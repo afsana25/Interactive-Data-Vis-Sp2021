@@ -11,15 +11,7 @@ const width = window.innerWidth*0.7,
 
   let state = {
 
-//     hover: {
-//       position: null,
-//         Country_Name: null,
-//    Population_Count: null,
-//     Fertily_Rate: null,
-//      Per_Capita : null,
-//      IncomeGroup: null,
-//     visible: false,
-//     }
+
   }
 
 //Read the data
@@ -35,23 +27,19 @@ function init(){
   // Add X axis
   const xScale = d3.scaleLinear()
   //.domain([0, 20000])
-  .domain(d3.extent(state.data, d=>d.Women_Violence))
+  .domain(d3.extent(state.data, d=>d.Literacy_rate_2018))
     //.range([margin.left, width-margin.right]);
     .range([0, width])
 
   // Add Y axis
   const yScale = d3.scaleLinear()
-    .domain(d3.extent(state.data, d=>d.Literacy_rate_2018))
+    .domain(d3.extent(state.data, d=>d.Women_Violence))
     .range([ height-margin.bottom, 0]);
 
 //+ AXES
     const xAxis = d3.axisBottom(xScale)
     const yAxis = d3.axisLeft(yScale)
-  // Add a scale for bubble size
-//  const z = d3.scaleSqrt()
-//     .domain(d3.extent(state.data, d=>d.Population19))
-//   //.range([margin.left, margin.right]);
-//   .range([4, 90])
+ 
 
   const colorScale = d3.scaleOrdinal()
   //.domain(["Asia", "Europe", "North America", "South America", "Africa", "Australia and Ocenia"])
@@ -74,7 +62,7 @@ const svg = container
     .attr("transform", `translate(${0}, ${height-margin.bottom})`) //translate(x,y)
     .call(xAxis)
     .append("text")
-    .text("Per Capita Income in 2019")
+    .text("Litaracy Rate")
     .attr("transform", `translate(${width/2}, ${50})`)
 
   svg.append("g")
@@ -87,14 +75,14 @@ const svg = container
    .attr("x", -height/2)
    .attr("transform", `rotate(-90)`)
    .attr("text-anchor", "middle")
-   .text("Fertility Rate of 2019")
+   .text("Violence Rates towards Women")
   
 
   svg.append("g")
   .attr("class", "yaxis")
   //.call(yAxis)
   .append("text")
-  .text("Fertilty rate Per Women vs Per capita Income in terms of population in Country")
+  .text("Violence Rates towards Women vs Literacy Rate Of womenin Country")
   .attr("transform", `translate(${width/2}, ${0.2})`)
   .style("font-size:", "10px")
 
@@ -110,11 +98,11 @@ const svg = container
     .attr("cx", width- margin.right)
     )
     .attr("class", "bubbles")
-      .attr("cx", d=> xScale(d.Women_Violence))
+      .attr("cx", d=> xScale(d.Literacy_rate_2018))
       .call(enter=> enter.transition()
   .duration(4000)
-      .attr("cy", d=> yScale(d.Literacy_rate_2018))
-      //.attr("r", 2)
+      .attr("cy", d=> yScale(d.Women_Violence))
+      //.attr("r",
       .attr("r", radius))
       .style("fill", d=>colorScale(d.Region))
        .attr("width", d => d.x)
@@ -133,8 +121,8 @@ const svg = container
     position: [event.x, event.y],
     Country_Name:  d.Entity,
     Population_Count: d.Population19,
-    Fertily_Rate: d.Literacy_rate_2018,
-     Per_Capita : d.Women_Violence,
+    Fertily_Rate: d.Women_Violence,
+     Per_Capita : d.Literacy_rate_2018,
      Income_Group: d.IncomeGroup,
     visible: true,
 }
@@ -153,62 +141,4 @@ const svg = container
 
 
         }
-
-//// legend
-
-   
-
-//     // Add one dot in the legend for each name.
-//     const groups = Array.from(new Set(d3.map(state.data, d=>d.Region)))
-//     svg.selectAll("myrect")
-//       .data(groups)
-//       .enter()
-//       .append("circle")
-//         .attr("cx", innerWidth*0.58)
-//         .attr("cy", (d,i) =>innerHeight*0.2- i*15) // This is place where the first dot appears. 25 is the distance between dots
-//         .attr("r", 7)
-//         .style("fill", d => colorScale(d))
-
-//     // Add labels beside legend dots
-//     svg.selectAll("mylabels")
-//       .data(groups)
-//       .enter()
-//       .append("text")
-//         .attr("x", innerWidth*0.66)
-//         .attr("y", (d,i) => innerHeight*0.2- i*15) // This is place  where the first dot appears. 25 is the distance between dots
-//         .style("fill", (d) => colorScale(d))
-//         .text(d => d)
-//         .attr("text-anchor", "left")
-//         .style("alignment-baseline", "left")
-
-// }
-//DRAW FUNCTION
-
-// function draw(){
-
-//   d3.select("#d3-container") // want to add
-//     .selectAll('div.hover-content')
-//     .data([state.hover])
-//     .join("div")
-//     .attr("class", 'hover-content')
-//     .classed("visible", d=> d.visible)
-//     .style("position", 'absolute')
-//     .style("transform", d=>{
-//     if (d.position)
-//     return`translate(${d.position[0]}px, ${d.position[1]}px)`})
-    
-//       .html(d=> {  
-//         return `<div> Country name: ${d.Country_Name}</div>
-//       <div> Population in 2019: ${d3.format(",")(d.Population_Count)}<div>
-//       <div> Firtilty Rate in 2019: ${d3.format(".2f")(d.Fertily_Rate)}</div>
-//       <div> Per Capita in 2019: ${"$"+d3.format(",.2f")(d.Per_Capita) }<div>
-//       <div> Income Group in 2019: ${(d.Income_Group) }<div>`
-    
-
-//   })
-//   }
-  
-
-     
-    
 
