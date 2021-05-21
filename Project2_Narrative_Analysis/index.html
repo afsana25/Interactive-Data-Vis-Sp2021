@@ -1,247 +1,252 @@
 
 
-
   <!DOCTYPE html>
-<html>
-<title> Narrative Analysis</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./style.css">
-
-<script src="../lib/d3.js"></script>
-<style>
-    body {
-        font-family: "Times New Roman", Georgia, Serif;
-        size: 50px;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: "Playfair Display";
-        letter-spacing: 5px;
-    }
-</style>
-
-<body>
-
-    <!-- Navbar (sit on top) -->
-    <div class="viz-top">
-        <div class="viz-bar viz-white padding-2 viz-card" style="letter-spacing:1px;">
-            <a href="#home" class="viz-bar-item viz-button"> Home</a>
-            <!-- Right-sided navbar links. Hide them on small screens -->
-            <div class="viz-right viz-hide-small">
-                <a href="#Introduction" class="viz-bar-item viz-button">Introduction</a>
-                <a href="#correlation" class="viz-bar-item viz-button">Correlation Analysis</a>
-                <a href="#conclusion" class="viz-bar-item viz-button">Conclusion</a>
-            </div>
-        </div>
-    </div>
-
-    <!--Header-->
-    <header class="viz-display-container viz-content viz-wide" style="max-width:1600px;min-width:500px" id="home">
-
-    
-
-        <div id="d3-container"> </div>
-    
-                  
-        <script src="main.js" width = "600"  height = "600" ></script>
-        <!-- <img class="viz-image" src="/vizimages/hamburger.jpg" alt="Introduction" width="1600" height="800"> -->
-        <div class="viz-display-bottomleft padding-large viz-opacity">
-        </div>
-    </header>
-
-
-
-     <!-- Introduction Section -->
-  <div class="viz-row viz-padding-4" id="Introduction">
-    <div class="viz-padding-large">
-      <h1 class="viz-center">Introduction</h1>
-      <h5 class="viz-center">Afsana Mimi</h5><br>
-    <blockquote>  <blockquote> <blockquote> 
-      <p> 
-        &nbsp &nbsp &nbsp &nbsp  
-        The analysis shows the socio-economic indicators such as Women Literacy Rate, Women Violence Rate, Teen Mother rate can affect their participation in Employment.
-         For the bubble chart, only 146 countries have participated in the visualization due to many missing values for the country. The World bubble map shows larger the bubble size, and the more women face violence. The hover over the map shows the country name, violence rate, employment rate, and teen mother rate. It tells that the country with less violence towards women has more literacy rate, lower teen mother rate, which makes the country has more women employment rate. The correlation analysis shows the relationship with indicators. It has also shown that women with less education rate, more teen mother rate, and more violence towards women refrain from participating in Employment in a country. </p><br>
-</p>
-         <hr>
-        </blockquote>  </blockquote> </blockquote>  
-
-<h5 class= "viz-center"> Discription of the Indicators</h5>
-<blockquote><blockquote><blockquote> <blockquote>
-  <blockquote>
-      <li><cite><b> Women Employment Rate:</b> </cite>It represents the average women employment participation rate of a country. If the rate is 10%, it means that only 10 
-        women have a job or participating in 
-        the job field among 100 women of that particular country.
-</li>
-      <li> <cite><b> Women Violence Rate:</b> </cite> It represents the average rate women face violence in the country. If the rate is 10%, it means that only 10 
-        women face violence among 100 women of that particular country 
- </li>
-      <li><cite> <b>Women Literacy Rate:</b> </cite> It represents the average literacy rate of the women of a country.
-        If the rate is 10%, it means that only 10 
-        women are literate among 100 women of that particular country 
- </li>
-      <li><cite><b> Teen Mother Rate:</b> </cite>It represents the average teen mother rate of a country.
-        If the rate is 10%, it means that only 10 
-        women become a mother at an teen age among 100 women of that particular country.
- </li>
-      <li><cite><b> IncomeGroup:</b> </cite> It represents the income group in which the country belongs based on
-        the GDP per Capita.
-</li>
-
-
-
-  </blockquote></blockquote></blockquote></blockquote>
-      
-    </div>
-    </div>
-    </div>
-    <hr>
-
-                <p>
-
-       
-        <!-- correlation Section -->
-        <div class="viz-row padding-4" id="correlation">
-            
-            <div class=" l6 padding-large">
-              <h1 class="viz-center">Correlation Analysis</h1>
-      <br>
-
-      <blockquote><blockquote><blockquote><p>
-
-
-        &nbsp &nbsp &nbsp &nbsp  The correlation analysis is to see the relationship between the indicators. The value ranges from -1 to 1. The negative value means if one indicator value is increasing, another indicator's value is decreasing. The positive value means if one indicator value increasing, another one is increasing. The value 0 means no relationship between variables. The value 1 means strongly correlated. Only 80 countries' values have been used in the correlation analysis because the indicator teen mother rate has many null values for the countries, but only 80 countries have values.  If we have more value, we can have a better answer. Still, the analysis proves what we want to prove. If we look carefully at the table, the Employment Rate negatively correlates with Teen Mother(-0.53 = negative moderate), Violence Rate(-0.29 =  negative small). It means more teen mother rate, and violence rate has negative impacts on the employment rate. The employment rate positively correlates with the women's literacy rate (0.79= relatively positive strong correlation). It means if the literacy rate of women is increasing, the employment rate of women is also growing.  If we see the violence rate, it positively correlates with teen mothers (0.19 = slight positive) and negatively correlates with the literacy rate(-0.31 = negative small). It means the number of teen mothers is increasing, they are more violent,  and if the literacy rate increases, the violence rate decreases.  The literacy rate is negatively correlating with the teen mother rate(0.52 = moderately strong). It means the more women are literate in a country have a fewer teen mother. The correlation analysis has done in R. The table has written in HTML. The table has given below:
-
-      </p></blockquote></blockquote></blockquote>
-                
-                
-        <blockquote><blockquote><blockquote>
-                
-            </div>
-
-            <div class="l6 padding-large">
-
-                <style>
-                    table {
-                      font-family: arial, sans-serif;
-                      border-collapse: collapse;
-                      width: 100%;
-                    }
-                    
-                    td, th {
-                      border: 1px solid #dddddd;
-                      text-align: left;
-                      padding: 8px;
-                    }
-                    
-                    tr:nth-child(even) {
-                      background-color: #dddddd;
-                    }
-                    </style>
-                    </head>
-                    <body>
-                    <table>
-                    <h2 class="viz-center" >Correlation Value between Indicators(Women)</h2>
-                
-                      <tr>
-                        <th></th>
-                        <th>Teen Mother</th>
-                        <th>Violence Rate</th>
-                        <th>Employment Rate</th>
-                        <th>Literacy Rate</th>
-                      </tr>
-                      <tr>
-                        <td>Employment Rate</td>
-                        <td>-0.5329817</td>
-                        <td>-0.2287943 </td>
-                        <td>1</td>
-                        <td>0.7880215</td>
-                      </tr>
-                      <tr>
-                        <td>Literacy Rate	</td>
-                        <td>-0.5219699</td>
-                        <td>-0.3152377</td>
-                        <td>0.7880215</td>
-                        <td>	1</td>
-                      </tr>
-                      <tr>
-
-                        <td>Teen Mother</td>
-                        <td>1</td>
-                        <td>0.1990873</td>
-                        <td>-0.5329817</td>
-                        <td>-0.5219699</td>
-                      </tr>
-                    </tr>
-                        
-                      </tr>
-                        <td>Violence Rate</td>
-                        <td>0.1990873</td>
-                        <td>1	</td>
-                        <td>-0.2287943</td>
-                        <td>-0.3152377</td>
-                      </tr>
-                    </table>
-                  
-                    
+  <html>
+  <title> Narrative Analysis</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./style.css">
+  <title>What Refrains Women to Participate in the Job field?</title>
   
-            </div>
-        </div>
-      </blockquote></blockquote></blockquote>
-
+  <script src="../lib/d3.js"></script>
+  <style>
+      body {
+          font-family: "Times New Roman", Georgia, Serif;
+          size: 50px;
+      }
+  
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+          font-family: "Playfair Display";
+          letter-spacing: 5px;
+      }
+  </style>
+  
+  <body>
+  
+      <!-- Navbar (sit on top) -->
+      <div class="viz-top">
+          <div class="viz-bar viz-white padding-2 viz-card" style="letter-spacing:1px;">
+              <a href="#home" class="viz-bar-item viz-button"> Home</a>
+              <!-- Right-sided navbar links. Hide them on small screens -->
+              <div class="viz-right viz-hide-small">
+                  <a href="#Introduction" class="viz-bar-item viz-button">Introduction</a>
+                  <a href="#correlation" class="viz-bar-item viz-button">Correlation Analysis</a>
+                  <a href="#conclusion" class="viz-bar-item viz-button">Conclusion</a>
+              </div>
+          </div>
+      </div>
+  
+      <!--Header-->
+      <header class="viz-display-container viz-content viz-wide" style="max-width:800px;min-width:500px" id="home">
+  
+      
+  
+          <div id="d3-container"> </div>
+      
+                    
+          <script src="main.js" width = "600"  height = "600" ></script>
+          <!-- <img class="viz-image" src="/vizimages/hamburger.jpg" alt="Introduction" width="1600" height="800"> -->
+          <div class="viz-display-bottomleft padding-large viz-opacity">
+          </div>
+      </header>
+  
+  
+  
+       <!-- Introduction Section -->
+    <div class="viz-row viz-padding-4" id="Introduction">
+      <div class="viz-padding-large">
+        <h1 class="viz-center">What Refrains Women to Participate in the Job field?</h1>
+        <h1 class="viz-center">Introduction</h1>
+        <h5 class="viz-center">Afsana Mimi</h5><br>
+      <blockquote>  <blockquote> <blockquote> 
+        <p> 
+          &nbsp &nbsp &nbsp &nbsp  
+          The analysis shows the socio-economic indicators such as Women Literacy Rate, Women Violence Rate, Teen Mother rate can affect their participation in Employment.
+           For the bubble chart, only 146 countries have participated in the visualization due to many missing values for the country. The World bubble map shows larger the bubble size, and the more women face violence. The hover over the map shows the country name, violence rate, employment rate, and teen mother rate. It tells that the country with less violence towards women has more literacy rate, lower teen mother rate, which makes the country has more women employment rate. The correlation analysis shows the relationship with indicators. It has also shown that women with less education rate, more teen mother rate, and more violence towards women refrain from participating in Employment in a country. </p><br>
+  </p>
+           <hr>
+          </blockquote>  </blockquote> </blockquote>  
+  
+  <h5 class= "viz-center"> Discription of the Indicators</h5>
+  <blockquote><blockquote><blockquote> <blockquote>
+    <blockquote>
+        <li><cite><b> Women Employment Rate:</b> </cite>It represents the average women employment participation rate of a country. If the rate is 10%, it means that only 10 
+          women have a job or participating in 
+          the job field among 100 women of that particular country.
+  </li>
+        <li> <cite><b> Women Violence Rate:</b> </cite> It represents the average rate women face violence in the country. If the rate is 10%, it means that only 10 
+          women face violence among 100 women of that particular country 
+   </li>
+        <li><cite> <b>Women Literacy Rate:</b> </cite> It represents the average literacy rate of the women of a country.
+          If the rate is 10%, it means that only 10 
+          women are literate among 100 women of that particular country 
+   </li>
+        <li><cite><b> Teen Mother Rate:</b> </cite>It represents the average teen mother rate of a country.
+          If the rate is 10%, it means that only 10 
+          women become a mother at an teen age among 100 women of that particular country.
+   </li>
+        <li><cite><b> IncomeGroup:</b> </cite> It represents the income group in which the country belongs based on
+          the GDP per Capita.
+  </li>
+  
+  
+  
+    </blockquote></blockquote></blockquote></blockquote>
+        
+      </div>
+      </div>
+      </div>
       <hr>
-        <div >
-        
-        
-                <div class="viz-col padding-large">
-                    <div class="viz-container padding-4" id="conclusion">
-                        <h1 class= "viz-center">Conclusion</h1><br>
-                        <p></p>
-                        <!-- <p class="text-blue-grey viz-large"><b>Summary</b></p> -->
-                    <blockquote><blockquote><blockquote><p>
-                      &nbsp &nbsp &nbsp &nbspIn conclusion, the above map visualization and correlation analysis actually demonstrate that the more violence towards women, the more teen mother rate, less literacy rate of the women of a country, there is less employment participation rate of that country.
-
-                    </p></blockquote></blockquote></blockquote>
+  
+                  <p>
+  
+         
+          <!-- correlation Section -->
+          <div class="viz-row padding-4" id="correlation">
+              
+              <div class=" l6 padding-large">
+                <h1 class="viz-center">Correlation Analysis</h1>
+        <br>
+  
+        <blockquote><blockquote><blockquote><p>
+  
+  
+          &nbsp &nbsp &nbsp &nbsp  The correlation analysis is to see the relationship between the indicators. The value ranges from -1 to 1. The negative value means if one indicator value is increasing, another indicator's value is decreasing. The positive value means if one indicator value increasing, another one is increasing. The value 0 means no relationship between variables. The value 1 means strongly correlated. Only 80 countries' values have been used in the correlation analysis because the indicator teen mother rate has many null values for the countries, but only 80 countries have values.  If we have more value, we can have a better answer. Still, the analysis proves what we want to prove. If we look carefully at the table, the Employment Rate negatively correlates with Teen Mother(-0.53 = negative moderate), Violence Rate(-0.29 =  negative small). It means more teen mother rate, and violence rate has negative impacts on the employment rate. The employment rate positively correlates with the women's literacy rate (0.79= relatively positive strong correlation). It means if the literacy rate of women is increasing, the employment rate of women is also growing.  If we see the violence rate, it positively correlates with teen mothers (0.19 = slight positive) and negatively correlates with the literacy rate(-0.31 = negative small). It means the number of teen mothers is increasing, they are more violent,  and if the literacy rate increases, the violence rate decreases.  The literacy rate is negatively correlating with the teen mother rate(0.52 = moderately strong). It means the more women are literate in a country have a fewer teen mother. The correlation analysis has done in R. The table has written in HTML. The table has given below:
+  
+        </p></blockquote></blockquote></blockquote>
+                  
+                  
+          <blockquote><blockquote><blockquote>
+                  
+              </div>
+  
+              <div class="l6 padding-large">
+  
+                  <style>
+                      table {
+                        font-family: arial, sans-serif;
+                        border-collapse: collapse;
+                        width: 100%;
+                      }
+                      
+                      td, th {
+                        border: 1px solid #dddddd;
+                        text-align: left;
+                        padding: 8px;
+                      }
+                      
+                      tr:nth-child(even) {
+                        background-color: #dddddd;
+                      }
+                      </style>
+                      </head>
+                      <body>
+                      <table>
+                      <h2 class="viz-center" >Correlation Value between Indicators(Women)</h2>
+                  
+                        <tr>
+                          <th></th>
+                          <th>Teen Mother</th>
+                          <th>Violence Rate</th>
+                          <th>Employment Rate</th>
+                          <th>Literacy Rate</th>
+                        </tr>
+                        <tr>
+                          <td>Employment Rate</td>
+                          <td>-0.5329817</td>
+                          <td>-0.2287943 </td>
+                          <td>1</td>
+                          <td>0.7880215</td>
+                        </tr>
+                        <tr>
+                          <td>Literacy Rate	</td>
+                          <td>-0.5219699</td>
+                          <td>-0.3152377</td>
+                          <td>0.7880215</td>
+                          <td>	1</td>
+                        </tr>
+                        <tr>
+  
+                          <td>Teen Mother</td>
+                          <td>1</td>
+                          <td>0.1990873</td>
+                          <td>-0.5329817</td>
+                          <td>-0.5219699</td>
+                        </tr>
+                      </tr>
+                          
+                        </tr>
+                          <td>Violence Rate</td>
+                          <td>0.1990873</td>
+                          <td>1	</td>
+                          <td>-0.2287943</td>
+                          <td>-0.3152377</td>
+                        </tr>
+                      </table>
                     
-                    </div>
-                    
-                    </div>
-                </div>
-            </div>
-        <!-- Analysis Section -->
-       
+                      
+    
+              </div>
+          </div>
+        </blockquote></blockquote></blockquote>
+  
+        <hr>
+          <div >
+          
+          
+                  <div class="viz-col padding-large">
+                      <div class="viz-container padding-4" id="conclusion">
+                          <h1 class= "viz-center">Conclusion</h1><br>
+                          <p></p>
+                          <!-- <p class="text-blue-grey viz-large"><b>Summary</b></p> -->
+                      <blockquote><blockquote><blockquote><p>
+                        &nbsp &nbsp &nbsp &nbspIn conclusion, the above map visualization and correlation analysis actually demonstrate that the more violence towards women, the more teen mother rate, less literacy rate of the women of a country, there is less employment participation rate of that country.
+  
+                      </p></blockquote></blockquote></blockquote>
+                      
+                      </div>
+                      
+                      </div>
+                  </div>
+              </div>
 
-    <!-- Footer -->
+              <div class=" viz-center  padding-2"> Go Back To Final Portfolio:
 
-
-    <footer class="viz-center">
-       <div> <h1 class="viz-center">Sources </h1><br> </div>
-    </footer>
-
-    <p>
-    <footer>
-
-        <div class=" viz-center viz-light-grey padding-2" >
-            <blockquote>
-         <a href="https://databank.worldbank.org/home.aspx" target="_blank" class="hover-text-green"> World
-            Bank.Org</a> , 
-            <a href="https://data.oecd.org/" target="_blank"  class="hover-text-green" > Organisation for Economic Co-operation and Development.org</a>
-               <a href="https://www.d3-graph-gallery.com/" target="_blank" class="hover-text-green">D3 Graph Gallery</a>, 
-
-               <a href="https://observablehq.com/@d3" target="_blank " class="hover-text-green">Oberservablehq.com</a>
-        <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
-                class="hover-text-green">w3.css</a>
-            </blockquote>
-
-</div>
-</footer>
-</p>
-
-</body>
-
-</html>
+                <a href="https://afsana25.github.io/Interactive-Data-Vis-Sp2021/Final_Portfolio/index.html" title="Final Portfolio" target="_blank" class="hover-text-green"
+                 >Final Portfolio</a></div> 
+          <!-- Analysis Section -->
+         
+  
+      <!-- Footer -->
+  
+  
+      <footer class="viz-center">
+         <div> <h1 class="viz-center">Sources </h1><br> </div>
+      </footer>
+  
+      <p>
+      <footer>
+  
+          <div class=" viz-center viz-light-grey padding-2" >
+              <blockquote>
+           <a href="https://databank.worldbank.org/home.aspx" target="_blank" class="hover-text-green"> World
+              Bank.Org</a> , 
+              <a href="https://data.oecd.org/" target="_blank"  class="hover-text-green" > Organisation for Economic Co-operation and Development.org</a>
+                 <a href="https://www.d3-graph-gallery.com/" target="_blank" class="hover-text-green">D3 Graph Gallery</a>, 
+  
+                 <a href="https://observablehq.com/@d3" target="_blank " class="hover-text-green">Oberservablehq.com</a>
+          <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
+                  class="hover-text-green">w3.css</a>
+              </blockquote>
+  
+  </div>
+  </footer>
+  </p>
+  
+  </body>
+  

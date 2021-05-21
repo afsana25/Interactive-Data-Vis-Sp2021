@@ -1,50 +1,50 @@
 * {
-    font-family: "Roboto", sans-serif;
-  }
-  
-  body {
-      display: flex;
-      flex-wrap: nowrap;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-  
-  .title {
-    text-align:center;
-  }
-  .hover-content{
-    top: 0;
-    left: 0;
-    max-width: 200px;
-    background-color: palegoldenrod;
-    padding: .5em;
-    opacity: 1;
-    /* need to remove pointer events so that
-    the tooltip doesn't interrupt the mouse events */
-    pointer-events: none;
-    border-radius: 5px;
-    box-shadow: 0 0 7px gainsboro;
-  }
-  
-  .hover-content.visible{
-    opacity: 1;
-  }
-  
-  
-  .bubbles {
-  
-  stroke-width: 1px;
-  stroke: white;
-  }
-  
-  .bubbles:hover {
-    stroke-width: 2px;
-  stroke:black;
-  opacity: 0.7;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
-  
+.title {
+  text-align:center;
+}
+.hover-content{
+  top: 0;
+  left: 0;
+  max-width: 200px;
+  background-color: palegoldenrod;
+  padding: .5em;
+  opacity: 1;
+  /* need to remove pointer events so that
+  the tooltip doesn't interrupt the mouse events */
+  pointer-events: none;
+  border-radius: 5px;
+  box-shadow: 0 0 7px gainsboro;
+}
+
+.hover-content.visible{
+  opacity: 1;
+}
+
+
+.bubbles {
+
+stroke-width: 1px;
+stroke: white;
+}
+
+.bubbles:hover {
+  stroke-width: 2px;
+stroke:black;
+opacity: 0.7;
+}
+
+
 html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
 
 
@@ -58,11 +58,11 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 
 .viz-container:after,.viz-container:before,.viz-panel:after,.viz-panel:before,.viz-row:after,.viz-row:before,.viz-row-padding:after,.viz-row-padding:before,
 
- .viz-cell-row:before,.viz-cell-row:after,.viz-clear:after,.viz-clear:before,.viz-bar:before,.viz-bar:after{content:"";display:table;clear:both}
+.viz-cell-row:before,.viz-cell-row:after,.viz-clear:after,.viz-clear:before,.viz-bar:before,.viz-bar:after{content:"";display:table;clear:both}
 .viz-col,.viz-half,.viz-third,.viz-twothird,.viz-threequarter,.viz-quarter{float:left;width:100%}
 
 
- @media (min-width:601px){.viz-col.m1{width:8.33333%}.viz-col.m2{width:16.66666%}.viz-col.m3,.viz-quarter{width:24.99999%}.viz-col.m4,.viz-third{width:33.33333%}
+@media (min-width:601px){.viz-col.m1{width:8.33333%}.viz-col.m2{width:16.66666%}.viz-col.m3,.viz-quarter{width:24.99999%}.viz-col.m4,.viz-third{width:33.33333%}
 .viz-col.m5{width:41.66666%}.viz-col.m6,.viz-half{width:49.99999%}.viz-col.m7{width:58.33333%}.viz-col.m8,.viz-twothird{width:66.66666%}
 .viz-col.m9,.viz-threequarter{width:74.99999%}.viz-col.m10{width:83.33333%}.viz-col.m11{width:91.66666%}.viz-col.m12{width:99.99999%}}
 
@@ -78,7 +78,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 
 @media (max-width:992px){.viz-sidebar.viz-collapse{display:none}.viz-main{margin-left:0!important;margin-right:0!important}.viz-auto{max-width:100%}}
 .viz-top,.viz-bottom{position:fixed;width:100%;
-    color: black; z-index:1,
+  color: black; z-index:1,
 }.viz-top{top:0}.viz-bottom{bottom:0}
 
 .viz-card{box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)}
@@ -101,7 +101,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .padding-large{padding:12px 24px!important}
 
 
- .padding-0{padding-top:16px!important;padding-bottom:16px!important}
+.padding-0{padding-top:16px!important;padding-bottom:16px!important}
 .padding-1{padding-top:24px!important;padding-bottom:24px!important}  *
 
 
@@ -140,7 +140,5 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 
 
 .text-green,.hover-text-green:hover{color:#4CAF50!important}
-
-
 
 
