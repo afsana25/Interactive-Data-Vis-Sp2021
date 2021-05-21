@@ -4,7 +4,7 @@
  * */
  const width = window.innerWidth * 0.9,
  height = window.innerHeight * 0.9,
- margin = { top: 20, bottom: 50, left: 60, right: 40 };
+ margin = { top: 100, bottom: 50, left: 60, right: 40 };
 
 /** these variables allow us to access anything we manipulate in
 * init() but need access to in draw().
@@ -116,6 +116,7 @@ console.log('d',d)
    LiteracyRate: d.LiteracyRate_Adult_Femlale15_Over,
    WomenEmployment: d.Female_Participant_Rate19,
    Income: d.IncomeGroup,
+   TeenMother: d.TenageMother15to19,
    screenPosition: [clientX, clientY],
    mapPosition: [long, lat],
    visible: true,
@@ -151,12 +152,15 @@ d3.select("#d3-container") // want to add
      return `translate(${d.screenPosition[0]}px, ${d.screenPosition[1]}px)`
    })
    .html(d=> {
-     return `<div> Location: [${(d3.format(".2f")(d.mapPosition[0]))}, ${(d3.format(".2f")(d.mapPosition[1]))}]</div>
+     return  `
+    <!--  <div> Location: ${d3.format(".2f")(d.mapPosition[0])}, ${d3.format(".2f")(d.mapPosition[0])}</div>-->
+
      <div> Country name: ${d.Name}</div>
      <div> Income group: ${d.Income}</div>
      <div> The precentage of women face violence: ${(d3.format(".0%")(d.WomenViolence/100))}<div>
-     <div> Average women literacy rate: ${(d3.format(".0%")(d.LiteracyRate/100))}</div>
-<div> Average employment rate of Women: ${(d3.format(".0%"))(d.WomenEmployment/100)}<div>
+     <div> Literacy rate of the womren: ${(d3.format(".0%")(d.LiteracyRate/100))}</div>
+     <div> Teen mother rate: ${(d3.format(".0%")(d.TeenMother/100))}</div>
+<div> Employment rate of Women: ${(d3.format(".0%"))(d.WomenEmployment/100)}<div>
      
      `
    }

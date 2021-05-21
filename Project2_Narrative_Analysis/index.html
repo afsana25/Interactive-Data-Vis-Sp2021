@@ -1,173 +1,246 @@
-<!DOCTYPE html>
 
-<head>
-    <meta charset="utf-8">
-    <title>Interactive Data Visualization : Exploratory Project</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
+
+
+  <!DOCTYPE html>
+<html>
+<title>Analysis Analysis </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./style.css">
+
+<script src="../lib/d3.js"></script>
+<style>
+    body {
+        font-family: "Times New Roman", Georgia, Serif;
+        size: 50px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Playfair Display";
+        letter-spacing: 5px;
+    }
+</style>
 
 <body>
-    <h1>Narrative Project: Why Women Have Less Participation Rate in Employment?</h1>
-    <cite>
-        <h2>Afsana Mimi</h2>
-    </cite>
-    <!--h3> Bubble Chart </h3-->
 
-    <body>
-        <blockquote>
-            <h3>Overview of the Project:</h3>
-            <blockquote>
-                <p> The Narrative project shows the socio-economic indicators such as Women Literacy Rate and Women Violence Rate can affect
-                their participation in Employment in terms of regions in the world. The World choropleth map will be showing an average
-                Education rate 2018(the most updated data) and violence rate in the country for 2019. The first bar charts demonstrate
-                the female Literacy Rate, and the last bar chart shows the average female violence rate in terms of income group,
-                sorting through the highest to lowest percentage. The previous project I have worked on, the Exploratory project, is
-                "How Women's Fertility and Employment Participation Rate are Shaping World Economic." This narrative project breaks down
-                more of the Exploratory Project. Its primary focus is to show the education rate and how safe the country is for women
-                compared to low to high-income countries. The data have collected from <cite> <a
-                            href="https://data.oecd.org/" target="_blank"> Visit Organisation for Economic Co-operation and Development.org!</a> </cite>. I have collected, cleaned, and combined data
-                    <!--<a href="./data/Data_Final.csv">Actual Data!</a>-->. The data involves only 135 countries since
-                    some
-                    countries of have missing data, so I have deducted those from this project. For data visualization, I
-                    have used D3 and JavaScript. The codes I have used from the <b><cite>Interactive Data
-                            Visualization</cite></b>
-                    class tutorial, and an online resource <cite> <a href="https://www.d3-graph-gallery.com/"
-                            target="_blank">Visit D3 Graph Gallery.com!</a> </cite>.
-                    The data visualization shows that women with less education rate and more violence towards women refrain them to participate in employment
-                in a country.
-            </blockquote>
+    <!-- Navbar (sit on top) -->
+    <div class="viz-top">
+        <div class="viz-bar viz-white padding-2 viz-card" style="letter-spacing:1px;">
+            <a href="#home" class="viz-bar-item viz-button"> Home</a>
+            <!-- Right-sided navbar links. Hide them on small screens -->
+            <div class="viz-right viz-hide-small">
+                <a href="#Introduction" class="viz-bar-item viz-button">Introduction</a>
+                <a href="#correlation" class="viz-bar-item viz-button">Correlation Analysis</a>
+                <a href="#conclusion" class="viz-bar-item viz-button">Conclusion</a>
+            </div>
+        </div>
+    </div>
 
-            <blockquote>
-                <p>Here are a few of the records of the data.</p>
-            </blockquote>
-            <blockquote>
-                <p>
-                <blockquote>
-                    <img src="./Image/Data.png" alt="">
-                </blockquote>
-                </p>
-            </blockquote>
+    <!--Header-->
+    <header class="viz-display-container viz-content viz-wide" style="max-width:1600px;min-width:500px" id="home">
 
-            </p>
-        </blockquote>
-    </body>
-    <p>
+    
 
-    <blockquote>
-        <h3> Indicators: </h3>
-        Some Prominent indicators have given below:
-
-        <blockquote>
-            <li> <cite> <b> Entity:</b> </cite> It represents each country. </li>
-            <li><cite><b>Code: </b> </cite>It represents each country code. </li>
-            <li><cite><b> longitude:</b> </cite>It represents the geographic, logitude of the country.</li>
-            <li> <cite> <b>lattitude</b> </cite> It represents the geographic, logitude of the country.</li>
-            <li><cite><b> Male_Female_Ratio_Employment:</b> </cite>It represents the percentage of women's employment
-                participation with male employment participation in each country for
-                2019.</li>
-            <li> <cite><b> Women_Violence:</b> </cite> It represents the violence towards women in the country for 2019. </li>
-            <li><cite> <b>Literacy_rate_2018:</b> </cite> It represents the literacy rate of each country for 2018.</li>
-            <li><cite><b> Region:</b> </cite>It represents the region in which the country belongs.</li>
-            <li><cite><b> IncomeGroup:</b> </cite> It represents the income group in which the country belongs based on
-                the GDP per Capita.</li>
-
-        </blockquote>
-
-
-        <!-- <p>
-        <h4>What is GDP Per Capita?</h4>
-        <p>
-        <blockquote> According to <cite> <a
-                    href="https://www.investopedia.com/terms/p/per-capita-gdp.asp#:~:text=Key%20Takeaways-,Per%20capita%20gross%20domestic%20product%20(GDP)%20is%20a%20metric%20that,a%20country%20by%20its%20population.&text=Small%2C%20rich%20countries%20and%20more,the%20highest%20per%20capita%20GDP."
-                    target="_blank"> www.investopedia.com</a></cite>, the gross domestic product of a country is an
-            economic indicator which is the value of all productions such as goods and
-            services made in a country in a specific time. The GDP per capita has calculated by dividing the GDP of a
-            country by its
-            population. It defines a person's income in a country in a specific year. </blockquote>
-        </p>
-
-        </p> -->
-
-
-        </p>
-
-        <p>
-        <blockquote>
-            <h4>World Choropleth Map: (Still Working in the code....)</h4>
-        </blockquote>
-
-        <p>
         <div id="d3-container"> </div>
-        </p>
-
-        <blockquote>
-            In the Choropleth Map,....... More discription is comming......
-        </blockquote>
-        </p>
-
-        <!-- <p><a href="./data/Data_Final.csv"> Firtility Data </a></p> -->
-        <!-- <p><label for="dropdown2">Filter Selection
-            <select id="dropdown2" name="dropdown2"></select>
-            <p></p>
-        </label> -->
-        <p>
-        <blockquote>
-            <h4> Bar Charts:</h4>
-            <!-- <p>In the first bart chart, the X-axis represents certain countries' income groups in the bar charts, and the
-                Y-axis represented the women's participation
-                rates in those Regions in 2019. We can easily see North America's women have more participation rate
-                than other regions.</p> -->
-
-        <!-- </blockquote>
-
-        <div id="barchart3"></div>
-
-        <blockquote>
-            <p>The below graph shows average women wiolence rate in terms of IncomeGroup. We can easily see that
-                high income group has less women wiolence rates comapared to other groups.
-            </p>
-        </blockquote>
-        <div id="barchart2"></div>
-
-        <blockquote>
-            <p> The below graph shows average women literacy rate in terms of IncomeGroup. We can easily see that
-            high income group has more women literacy rates comapared to other groups. </p>
-
-        </blockquote> -->
-
-        <!-- <div id="barchart"></div>
-
-        So it can be other reasons, or women are facing other issues. I hope I can break down and answer the question in
-        the upcoming
-        narrative project.
-
-        </p> -->
-
-        <p>More discription is comming.....</p>
-
-        <!-- <p>
-        <h4>The Reason of Chosing the Topic:</h4>
-        <blockquote>First of all, I am a woman, and much research talks about women's empowerment. However, in some
-            regions or countries,
-            women do not get enough equality as men. They do not get enough education and a safe place to work. Since I
-            belong to
-            South Asia and currently living in the USA, and I can see the difference, I choose this topic to analyze.
-            Since I want to be a
-            data analyst in socio-economy development, people who do the socio-economic analysis are good for
-            understanding the data
-            and visualization. I think most people will easily familiar with this data visualization.</blockquote>
-        </p> -->
-
-        <script src="../lib/d3.js"></script>
-        <!-- <script src="main.js"></script> -->
-        <!-- <script src="Average_Women_Violence_Rate_IncomeGroup_Bar_Chart.js"></script>
-        <script src="Average_Literacy_Rate_IncomeGroup_Bar_Chart.js"></script> -->
-<script src="Scatter.js"></script>
-        <!-- <script src="Bar.js"></script> -->
-
-        <script src="../lib/d3.min.js"></script>
+    
+                  
+        <script src="main.js" width = "600"  height = "600" ></script>
+        <!-- <img class="viz-image" src="/vizimages/hamburger.jpg" alt="Introduction" width="1600" height="800"> -->
+        <div class="viz-display-bottomleft padding-large viz-opacity">
+        </div>
+    </header>
 
 
+
+     <!-- Introduction Section -->
+  <div class="viz-row viz-padding-4" id="Introduction">
+    <div class="viz-padding-large">
+      <h1 class="viz-center">Introduction</h1>
+      <h5 class="viz-center">Afsana Mimi</h5><br>
+    <blockquote>  <blockquote> <blockquote> 
+      <p> 
+        &nbsp &nbsp &nbsp &nbsp  
+        The analysis shows the socio-economic indicators such as Women Literacy Rate, Women Violence Rate, Teen Mother rate can affect their participation in Employment.
+         For the bubble chart, only 146 countries have participated in the visualization due to many missing values for the country. The World bubble map shows larger the bubble size, and the more women face violence. The hover over the map shows the country name, violence rate, employment rate, and teen mother rate. It tells that the country with less violence towards women has more literacy rate, lower teen mother rate, which makes the country has more women employment rate. The correlation analysis shows the relationship with indicators. It has also shown that women with less education rate, more teen mother rate, and more violence towards women refrain from participating in Employment in a country. </p><br>
+</p>
+         <hr>
+        </blockquote>  </blockquote> </blockquote>  
+
+<h5 class= "viz-center"> Discription of the Indicators</h5>
+<blockquote><blockquote><blockquote> <blockquote>
+  <blockquote>
+      <li><cite><b> Women Employment Rate:</b> </cite>It represents the average women employment participation rate of a country. If the rate is 10%, it means that only 10 
+        women have a job or participating in 
+        the job field among 100 women of that particular country.
+</li>
+      <li> <cite><b> Women Violence Rate:</b> </cite> It represents the average rate women face violence in the country. If the rate is 10%, it means that only 10 
+        women face violence among 100 women of that particular country 
+ </li>
+      <li><cite> <b>Women Literacy Rate:</b> </cite> It represents the average literacy rate of the women of a country.
+        If the rate is 10%, it means that only 10 
+        women are literate among 100 women of that particular country 
+ </li>
+      <li><cite><b> Teen Mother Rate:</b> </cite>It represents the average teen mother rate of a country.
+        If the rate is 10%, it means that only 10 
+        women become a mother at an teen age among 100 women of that particular country.
+ </li>
+      <li><cite><b> IncomeGroup:</b> </cite> It represents the income group in which the country belongs based on
+        the GDP per Capita.
+</li>
+
+
+
+  </blockquote></blockquote></blockquote></blockquote>
+      
+    </div>
+    </div>
+    </div>
+    <hr>
+
+                <p>
+
+       
+        <!-- correlation Section -->
+        <div class="viz-row padding-4" id="correlation">
+            
+            <div class=" l6 padding-large">
+              <h1 class="viz-center">Correlation Analysis</h1>
+      <br>
+
+      <blockquote><blockquote><blockquote><p>
+
+
+        &nbsp &nbsp &nbsp &nbsp  The correlation analysis is to see the relationship between the indicators. The value ranges from -1 to 1. The negative value means if one indicator value is increasing, another indicator's value is decreasing. The positive value means if one indicator value increasing, another one is increasing. The value 0 means no relationship between variables. The value 1 means strongly correlated. Only 80 countries' values have been used in the correlation analysis because the indicator teen mother rate has many null values for the countries, but only 80 countries have values.  If we have more value, we can have a better answer. Still, the analysis proves what we want to prove. If we look carefully at the table, the Employment Rate negatively correlates with Teen Mother(-0.53 = negative moderate), Violence Rate(-0.29 =  negative small). It means more teen mother rate, and violence rate has negative impacts on the employment rate. The employment rate positively correlates with the women's literacy rate (0.79= relatively positive strong correlation). It means if the literacy rate of women is increasing, the employment rate of women is also growing.  If we see the violence rate, it positively correlates with teen mothers (0.19 = slight positive) and negatively correlates with the literacy rate(-0.31 = negative small). It means the number of teen mothers is increasing, they are more violent,  and if the literacy rate increases, the violence rate decreases.  The literacy rate is negatively correlating with the teen mother rate(0.52 = moderately strong). It means the more women are literate in a country have a fewer teen mother. The correlation analysis has done in R. The table has written in HTML. The table has given below:
+
+      </p></blockquote></blockquote></blockquote>
+                
+                
+        <blockquote><blockquote><blockquote>
+                
+            </div>
+
+            <div class="l6 padding-large">
+
+                <style>
+                    table {
+                      font-family: arial, sans-serif;
+                      border-collapse: collapse;
+                      width: 100%;
+                    }
+                    
+                    td, th {
+                      border: 1px solid #dddddd;
+                      text-align: left;
+                      padding: 8px;
+                    }
+                    
+                    tr:nth-child(even) {
+                      background-color: #dddddd;
+                    }
+                    </style>
+                    </head>
+                    <body>
+                    <table>
+                    <h2 class="viz-center" >Correlation Value between Indicators(Women)</h2>
+                
+                      <tr>
+                        <th></th>
+                        <th>Teen Mother</th>
+                        <th>Violence Rate</th>
+                        <th>Employment Rate</th>
+                        <th>Literacy Rate</th>
+                      </tr>
+                      <tr>
+                        <td>Employment Rate</td>
+                        <td>-0.5329817</td>
+                        <td>-0.2287943 </td>
+                        <td>1</td>
+                        <td>0.7880215</td>
+                      </tr>
+                      <tr>
+                        <td>Literacy Rate	</td>
+                        <td>-0.5219699</td>
+                        <td>-0.3152377</td>
+                        <td>0.7880215</td>
+                        <td>	1</td>
+                      </tr>
+                      <tr>
+
+                        <td>Teen Mother</td>
+                        <td>1</td>
+                        <td>0.1990873</td>
+                        <td>-0.5329817</td>
+                        <td>-0.5219699</td>
+                      </tr>
+                    </tr>
+                        
+                      </tr>
+                        <td>Violence Rate</td>
+                        <td>0.1990873</td>
+                        <td>1	</td>
+                        <td>-0.2287943</td>
+                        <td>-0.3152377</td>
+                      </tr>
+                    </table>
+                  
+                    
+  
+            </div>
+        </div>
+      </blockquote></blockquote></blockquote>
+
+      <hr>
+        <div >
+        
+        
+                <div class="viz-col padding-large">
+                    <div class="viz-container padding-4" id="conclusion">
+                        <h1 class= "viz-center">Conclusion</h1><br>
+                        <p></p>
+                        <!-- <p class="text-blue-grey viz-large"><b>Summary</b></p> -->
+                    <blockquote><blockquote><blockquote><p>
+                      &nbsp &nbsp &nbsp &nbspIn conclusion, the above map visualization and correlation analysis actually demonstrate that the more violence towards women, the more teen mother rate, less literacy rate of the women of a country, there is less employment participation rate of that country.
+
+                    </p></blockquote></blockquote></blockquote>
+                    
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+        <!-- Analysis Section -->
+       
+
+    <!-- Footer -->
+
+
+    <footer class="viz-center">
+       <div> <h1 class="viz-center">Sources </h1><br> </div>
+    </footer>
+
+    <p>
+    <footer>
+
+        <div class=" viz-center viz-light-grey padding-2" >
+            <blockquote>
+         <a href="https://databank.worldbank.org/home.aspx" target="_blank" class="hover-text-green"> World
+            Bank.Org</a> , 
+            <a href="https://data.oecd.org/" target="_blank"  class="hover-text-green" > Organisation for Economic Co-operation and Development.org</a>
+               <a href="https://www.d3-graph-gallery.com/" target="_blank" class="hover-text-green">D3 Graph Gallery</a>, 
+
+               <a href="https://observablehq.com/@d3" target="_blank " class="hover-text-green">Oberservablehq.com</a>
+        <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
+                class="hover-text-green">w3.css</a>
+            </blockquote>
+
+</div>
+</footer>
+</p>
 
 </body>
 
